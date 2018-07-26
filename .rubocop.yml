@@ -1,0 +1,46 @@
+Rails:
+  Enabled: true
+
+
+AllCops:
+  TargetRubyVersion: 2.4.1
+
+  Exclude:
+    - 'app/views/**/*'
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'scripts/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+    - 'config/initializers/devise.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/controller_helpers.rb'
+
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 110
+
+# Increase block length for tests
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/**/*'
+
+
+Style/ClassAndModuleChildren:
+  Enabled: false
