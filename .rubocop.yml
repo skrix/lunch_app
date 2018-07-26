@@ -3,7 +3,7 @@ Rails:
 
 
 AllCops:
-  TargetRubyVersion: 2.4.1
+  TargetRubyVersion: 2.5.1
 
   Exclude:
     - 'app/views/**/*'
@@ -21,7 +21,11 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
     - 'spec/controller_helpers.rb'
+    - 'Gemfile*'
+    - ''
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
@@ -33,7 +37,11 @@ Style/SymbolArray:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 110
+  Max: 120
+
+Style/StringLiterals:
+  Exclude:
+    - 'config/**/*'
 
 # Increase block length for tests
 Metrics/BlockLength:
