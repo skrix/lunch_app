@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users signin' do
   before do
     @user = User.create!(email: 'user@example.com', password: 'password')
+    @invalid_user = User.new(email: 'invalid_user@example.com', password: 'password')
   end
 
   scenario 'with valid credentials' do
@@ -20,5 +21,23 @@ RSpec.feature 'Users signin' do
 
     expect(page).not_to have_link('Sign in')
     expect(page).not_to have_link('Sign up')
+  end
+
+  scenario 'with invalid credentials' do
+    visit '/'
+
+    click_link 'Sign in'
+
+    fill_in 'Email', with: @invalid_user.email
+    fill_in 'Password', with: @invalid_user.password
+
+    click_button 'Log in'
+
+    expect(page).to have_content('Invalid Email or password.')
+
+    expect(page).to have_link('Sign in')
+    expect(page).to have_link('Sign up')
+    expect(page).to have_link('Forgot your password?')
+
   end
 end
