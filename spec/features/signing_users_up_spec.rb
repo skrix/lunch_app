@@ -8,9 +8,9 @@ RSpec.feature 'User signup' do
 
     click_link 'Sign up'
 
-    fill_in 'Email', with: user_params.email
-    fill_in 'Password', with: user_params.password
-    fill_in 'Password confirmation', user_params.password_confirmation
+    fill_in 'Email',                 with: user_params.email
+    fill_in 'Password',              with: user_params.password
+    fill_in 'Password confirmation', with: user_params.password_confirmation
 
     click_button 'Sign up'
     expect(page).to have_content('You have signed up successfully.')
@@ -21,8 +21,8 @@ RSpec.feature 'User signup' do
 
     click_link 'Sign up'
 
-    fill_in 'Email', with: ''
-    fill_in 'Password', with: ''
+    fill_in 'Email',                 with: ''
+    fill_in 'Password',              with: ''
     fill_in 'Password confirmation', with: ''
 
     click_button 'Sign up'

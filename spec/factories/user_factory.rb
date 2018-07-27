@@ -13,7 +13,6 @@ FactoryBot.define do
       end
     end
 
-
     # Factories for invalid user
     factory :invalid_user do
       factory :invalid_user_without_email do
