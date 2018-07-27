@@ -4,26 +4,20 @@ FactoryBot.define do
   factory :user do
     # Factories for valid user
     factory :valid_user do
-      @pass = 'password'
-      sequence(:email) { |n| "username#{n}@example.com" }
-      password @pass
-
-      factory :valid_user_for_registration do
-        password_confirmation @pass
-      end
+      email                 { Faker::Internet.email }
+      password              { SecureRandom.base64(8) }
+      password_confirmation { password }
     end
 
     # Factories for invalid user
     factory :invalid_user do
       factory :invalid_user_without_email do
-        @pass = 'password'
-
-        password @pass
-        password_confirmation @pass
+        password              { SecureRandom.base64(8) }
+        password_confirmation { password }
       end
 
       factory :invalid_user_without_password do
-        email 'username@example.com'
+        email { Faker::Internet.email }
       end
     end
   end

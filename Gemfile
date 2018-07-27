@@ -43,8 +43,7 @@ group :development, :test do
   # FactoryBot
   gem 'factory_bot_rails'
   # Faker
-  # gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-  # Capybara
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # RSpec
   gem 'rspec-rails', '~> 3.7'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
