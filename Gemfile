@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # In BDD we trust
+  # FactoryBot
+  gem 'factory_bot_rails'
   # Faker
   # gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # Capybara
