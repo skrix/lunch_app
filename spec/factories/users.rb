@@ -11,6 +11,10 @@ FactoryBot.define do
 
     # Factories for invalid user
     factory :invalid_user do
+      email                 { '' }
+      password              { '' }
+      password_confirmation { password }
+
       factory :invalid_user_without_email do
         password              { SecureRandom.base64(8) }
         password_confirmation { password }
