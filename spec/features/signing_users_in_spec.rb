@@ -1,23 +1,21 @@
 require 'rails_helper'
 
 RSpec.feature 'Users signin' do
-  before do
-    @user = User.create!(email: 'user@example.com', password: 'password')
-    @invalid_user = User.new(email: 'invalid_user@example.com', password: 'password')
-  end
+  let(:valid_user) { FactoryBot.build(:valid_user) }
+  let(:invalid_user) { FactoryBot.build(:invalid_user_without_email) }
 
   scenario 'with valid credentials' do
     visit '/'
 
     click_link 'Sign in'
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
     click_button 'Log in'
 
     expect(page).to have_content('Signed in successfully.')
-    expect(page).to have_content("Signed in as #{@user.email}")
+    expect(page).to have_content("Signed in as #{user.email}")
 
     expect(page).not_to have_link('Sign in')
     expect(page).not_to have_link('Sign up')
@@ -28,8 +26,8 @@ RSpec.feature 'Users signin' do
 
     click_link 'Sign in'
 
-    fill_in 'Email', with: @invalid_user.email
-    fill_in 'Password', with: @invalid_user.password
+    fill_in 'Email', with: invalid_user.email
+    fill_in 'Password', with: invalid_user.password
 
     click_button 'Log in'
 
