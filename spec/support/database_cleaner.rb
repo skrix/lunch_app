@@ -9,5 +9,5 @@ RSpec.configure do |config|
 
   config.before(:each) { DatabaseCleaner.start }
 
-  config.append_after(:each) { DatabaseCleaner.clean }
+  config.after(:each) { DatabaseCleaner.clean }
 end
