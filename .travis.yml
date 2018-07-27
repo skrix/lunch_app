@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.5.1
+before_install:
+  - gem install bundler
+before_script:
+  - bundle exec rake db:create db:migrate
+notifications:
+  - false
+script:
+  - bundle exec rspec
+  - bundle exec rubocop
