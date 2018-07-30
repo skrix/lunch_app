@@ -82,3 +82,7 @@ gem 'devise'
 
 # Hamlit
 gem 'hamlit'
+
+# Bootstrap
+gem "twitter-bootstrap-rails"
+gem 'devise-bootstrap-views'
