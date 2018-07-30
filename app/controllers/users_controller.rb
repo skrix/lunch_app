@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  respond_to :html
 
   def index
     @users = User.all
@@ -12,20 +13,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = Operations::User::Create.call(user_params)
 
-    respond_to do |format|
-      format.html { redirect_to @user, notice: 'User was successfully created.' } if @user.save
-      format.html { render :new } unless @user.save
-    end
+    return respond_with_errors(@user) unless @user.valid?
+
+    render :show
   end
 
   def update
-    successfully = 'User was successfully updated.'
-    respond_to do |format|
-      format.html { redirect_to @user, notice: successfully } if @user.update(user_params)
-      format.html { render :edit } unless @user.update(user_params)
-    end
+    return render :show if update_user
+
+    respond_with_errors(@user)
   end
 
   private
@@ -36,5 +34,16 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def update_user
+    Operations::User::Update.call(
+      user:        @user,
+      user_params: user_params
+    )
+  end
+
+  def user_locale
+    t('activerecord.models.user.one')
   end
 end
