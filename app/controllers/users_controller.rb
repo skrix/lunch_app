@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
-  respond_to :html
+  respond_to :json, :html
 
   def index
     @users = User.all
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = Operations::User::Create.call(user_params)
+    @user = Operations::Users::Create.call(user_params)
 
     return respond_with_errors(@user) unless @user.valid?
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def update_user
-    Operations::User::Update.call(
+    Operations::Users::Update.call(
       user:        @user,
       user_params: user_params
     )

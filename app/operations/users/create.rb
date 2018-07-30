@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Operations
-  module User
+  module Users
     class Create < ::Callable
       def initialize(params = {})
         @email    = params[:email]
