@@ -1,8 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature 'User signup' do
-  # let(:valid_user_credentials)   { FactoryBot.attributes_for(:valid_user) }
-  let(:invalid_user_credentials) { FactoryBot.attributes_for(:invalid_user) }
+feature 'User signup' do
+  let(:valid_user_credentials)   { attributes_for(:user) }
+  let(:invalid_user_credentials) do
+    attributes_for(:user,
+                    email: nil,
+                    password: nil,
+                    password_confirmation: nil)
+  end
 
   def sign_up(user_params)
     visit '/'
@@ -18,7 +23,6 @@ RSpec.feature 'User signup' do
 
 
   scenario 'with valid credentials' do
-    valid_user_credentials = FactoryBot.attributes_for(:valid_user)
     sign_up(valid_user_credentials)
 
     expect(page).to have_content('You have signed up successfully.')

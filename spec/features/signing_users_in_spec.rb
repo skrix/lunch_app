@@ -1,8 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature 'Users signin' do
-  let(:valid_user)   { FactoryBot.create(:valid_user) }
-  let(:invalid_user) { FactoryBot.build(:invalid_user) }
+feature 'Users signin' do
+  let(:valid_user)   { create(:user) }
+  let(:invalid_user) do
+    build(:user,
+          email: nil,
+          password: nil,
+          password_confirmation: nil)
+  end
 
   def sign_in(user)
     visit '/'
