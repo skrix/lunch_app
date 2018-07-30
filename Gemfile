@@ -79,3 +79,6 @@ gem 'rubocop'
 
 # Devise for auth
 gem 'devise'
+
+# Hamlit
+gem 'hamlit'
