@@ -8,6 +8,9 @@
         - user.errors.full_messages.each do |message|
           %li= message
   .field
+    = form.label :email
+    = form.text_field :email
+  .field
     = form.label :password
     = form.text_field :password
   .actions
