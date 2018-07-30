@@ -1,4 +1,5 @@
 en:
+  title: 'Lunch Ordering App'
   questions:
     assurance: 'Are you sure?'
   actions:
@@ -8,6 +9,9 @@ en:
     update: 'Update'
     destroy: 'Destroy'
     edit: 'Edit'
+    auth:
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
     success:
       create: "%{resource} was successfully created."
       update: "%{resource} was successfully updated."
@@ -21,3 +25,6 @@ en:
         one: 'User'
         many: 'Users'
     attributes:
+      user:
+        email: 'Email'
+        password: 'Password'
