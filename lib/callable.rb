@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Callable
   def self.call(*args)
     new(*args).call.tap do |result|
