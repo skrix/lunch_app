@@ -17,7 +17,7 @@ module Operations
       attr_reader :user_params, :user
 
       def update_params
-        user_params.slice(:hidden)
+        user_params
       end
     end
   end

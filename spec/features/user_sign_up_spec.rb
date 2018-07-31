@@ -5,9 +5,6 @@ feature 'User signup' do
     visit new_user_registration_path
   end
 
-  let(:user_attributes)         { attributes_for(:user) }
-  let(:invalid_user_attributes) { {} }
-
   def sign_up(user_params)
 
     fill_in 'Email',                 with: user_params[:email]
@@ -18,6 +15,8 @@ feature 'User signup' do
   end
 
   context 'with valid attributes' do
+    let(:user_attributes) { attributes_for(:user) }
+
     scenario 'user sign up' do
       sign_up(user_attributes)
 
@@ -26,8 +25,10 @@ feature 'User signup' do
   end
 
   context 'with invalid attributes' do
+    let(:user_attributes) { {} }
+
     scenario 'user sign up' do
-      sign_up(invalid_user_attributes)
+      sign_up(user_attributes)
 
       expect(page).to have_content('Sign up')
     end
