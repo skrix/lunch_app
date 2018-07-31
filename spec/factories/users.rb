@@ -9,11 +9,11 @@ FactoryBot.define do
   end
 
   # Factories for invalid user
-  factory :invalid_user_without_email, parent: :user do
+  factory :without_email, parent: :user do
     email nil
   end
 
-  factory :invalid_user_without_password, parent: :user do
+  factory :without_password, parent: :user do
     password nil
   end
 end

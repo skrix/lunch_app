@@ -10,7 +10,7 @@ describe User, type: :model do
 
   context 'with invalid attributes' do
     context 'without a password attribute' do
-      let(:user) { build(:invalid_user_without_password) }
+      let(:user) { build(:without_password) }
 
       it "is not valid" do
         should validate_presence_of(:password)
@@ -19,7 +19,7 @@ describe User, type: :model do
     end
 
     context 'without a email attribute' do
-      let(:user) { build(:invalid_user_without_email) }
+      let(:user) { build(:without_email) }
 
       it "is not valid" do
         should validate_presence_of(:email)

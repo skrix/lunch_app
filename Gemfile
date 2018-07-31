@@ -78,6 +78,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Rubocop
 gem 'rubocop'
+gem 'rubocop-rspec'
 
 # Devise for auth
 gem 'devise'
@@ -88,3 +89,6 @@ gem 'hamlit'
 # Bootstrap
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
+
+# Test coverage percentage Simplecov
+gem 'simplecov', require: false, group: :test
