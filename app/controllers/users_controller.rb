@@ -2,22 +2,9 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
-  respond_to :json, :html
 
   def index
     @users = User.all
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = Operations::Users::Create.call(user_params)
-
-    return respond_with_errors(@user) unless @user.valid?
-
-    render :show
   end
 
   def update
@@ -41,9 +28,5 @@ class UsersController < ApplicationController
       user:        @user,
       user_params: user_params
     )
-  end
-
-  def user_locale
-    t('activerecord.models.user.one')
   end
 end
