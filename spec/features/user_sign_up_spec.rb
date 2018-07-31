@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 feature 'User signup' do
-  before(:each) do
-    visit new_user_registration_path
-  end
+  before { visit new_user_registration_path }
 
-  def sign_up(user_params)
-
+  def sign_up
     fill_in 'Email',                 with: user_params[:email]
     fill_in 'Password',              with: user_params[:password]
     fill_in 'Password confirmation', with: user_params[:password_confirmation]
@@ -15,21 +12,19 @@ feature 'User signup' do
   end
 
   context 'with valid attributes' do
-    let(:user_attributes) { attributes_for(:user) }
+    let(:user_params) { attributes_for(:user) }
 
     scenario 'user sign up' do
-      sign_up(user_attributes)
-
+      sign_up
       expect(page).to have_content('You have signed up successfully.')
     end
   end
 
   context 'with invalid attributes' do
-    let(:user_attributes) { {} }
+    let(:user_params) { {} }
 
     scenario 'user sign up' do
-      sign_up(user_attributes)
-
+      sign_up
       expect(page).to have_content('Sign up')
     end
   end

@@ -9,22 +9,7 @@ describe User, type: :model do
   end
 
   context 'with invalid attributes' do
-    context 'without a password attribute' do
-      let(:user) { build(:without_password) }
-
-      it "is not valid" do
-        should validate_presence_of(:password)
-        expect(user).not_to be_valid
-      end
-    end
-
-    context 'without a email attribute' do
-      let(:user) { build(:without_email) }
-
-      it "is not valid" do
-        should validate_presence_of(:email)
-        expect(user).not_to be_valid
-      end
-    end
+    it { should validate_presence_of(:password) }
+    it { should validate_presence_of(:email) }
   end
 end

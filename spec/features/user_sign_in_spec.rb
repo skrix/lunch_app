@@ -1,14 +1,11 @@
 require 'rails_helper'
 
 feature 'Users signin' do
-  before(:each) do
-    visit new_user_session_path
-  end
+  let!(:user) { create(:user) }
 
-  let!(:user)         { create(:user) }
+  before { visit new_user_session_path }
 
-  def sign_in(user)
-
+  def sign_in
     fill_in 'Email',    with: user.email
     fill_in 'Password', with: user.password
 
@@ -16,11 +13,8 @@ feature 'Users signin' do
   end
 
   scenario 'user sign in' do
-    sign_in(user)
+    sign_in
 
     expect(page).to have_content('Signed in successfully.')
-
-    expect(page).not_to have_link('Sign in')
-    expect(page).not_to have_link('Sign up')
   end
 end
