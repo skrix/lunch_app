@@ -60,6 +60,8 @@ group :development do
 end
 
 group :test do
+  # Shoulda matchers
+  gem 'shoulda-matchers', '~> 3.1'
   # Adds support for Capybara system testing and selenium driver
   # In BDD we trust
   # Database cleaner
