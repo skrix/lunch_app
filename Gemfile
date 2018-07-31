@@ -92,3 +92,4 @@ gem 'devise-bootstrap-views'
 
 # Test coverage percentage Simplecov
 gem 'simplecov', require: false, group: :test
+gem 'coveralls', require: false

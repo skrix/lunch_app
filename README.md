@@ -1,4 +1,5 @@
 # README
+[![Coverage Status](https://coveralls.io/repos/github/skrix/lunch_app/badge.svg)](https://coveralls.io/github/skrix/lunch_app)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
