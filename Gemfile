@@ -90,6 +90,5 @@ gem 'hamlit'
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
 
-# Test coverage percentage Simplecov
-gem 'simplecov', require: false, group: :test
+# Test coverage percentage Coveralls
 gem 'coveralls', require: false

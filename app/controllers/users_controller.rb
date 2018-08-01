@@ -8,9 +8,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    return render :show if update_user
-
-    respond_with_errors(@user)
+    respond_with update_user, location: user_path(@user)
   end
 
   private
@@ -24,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def update_user
-    Operations::Users::Update.call(
+    Users::Update.call(
       user:        @user,
       user_params: user_params
     )

@@ -13,4 +13,3 @@
         %td= link_to t('actions.edit'), edit_user_path(user)
         %td= link_to t('actions.destroy'), user, method: :delete, data: { confirm: t('questions.assurance') }
 %br/
-= link_to t('actions.new ') + t('activerecord.models.user.one'), new_user_path

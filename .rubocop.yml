@@ -353,6 +353,7 @@ Style/MethodCallWithArgsParentheses:
     - render_to_string
     - redirect_back
     - render
+    - respond_with
     - render_with_message
     - respond_with_errors
     - head

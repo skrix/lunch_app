@@ -23,7 +23,7 @@ feature 'User signup' do
   end
 
   context 'with invalid attributes' do
-    let(:user_params) { {} }
+    let(:user_params) { Hash.new }
 
     scenario 'user sign up' do
       expect(page).to have_content('Sign up')
