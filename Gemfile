@@ -37,12 +37,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # Dotenv
+  gem 'dotenv-rails'
   # In BDD we trust
   # FactoryBot
   gem 'factory_bot_rails'
   # Faker
-  # gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-  # Capybara
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # RSpec
   gem 'rspec-rails', '~> 3.7'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,6 +60,8 @@ group :development do
 end
 
 group :test do
+  # Shoulda matchers
+  gem 'shoulda-matchers', '~> 3.1'
   # Adds support for Capybara system testing and selenium driver
   # In BDD we trust
   # Database cleaner
@@ -75,3 +78,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Rubocop
 gem 'rubocop'
+gem 'rubocop-rspec'
+
+# Devise for auth
+gem 'devise'
+
+# Hamlit
+gem 'hamlit'
+
+# Bootstrap
+gem "twitter-bootstrap-rails"
+gem 'devise-bootstrap-views'
+
+# Test coverage percentage Coveralls
+gem 'coveralls', require: false

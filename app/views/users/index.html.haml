@@ -1,0 +1,15 @@
+%p#notice= notice
+%h1= t('activerecord.models.user.many')
+%table
+  %thead
+    %tr
+      %th= t('activerecord.attributes.user.email')
+      %th{colspan: "3"}
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %td= link_to t('actions.show'), user
+        %td= link_to t('actions.edit'), edit_user_path(user)
+        %td= link_to t('actions.destroy'), user, method: :delete, data: { confirm: t('questions.assurance') }
+%br/
