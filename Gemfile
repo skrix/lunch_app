@@ -46,8 +46,8 @@ group :development, :test do
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   # RSpec
   gem 'rspec-rails', '~> 3.7'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Call 'pry' anywhere in the code to stop execution and get a debugger console
+  gem 'pry', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -74,7 +74,7 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Rubocop
 gem 'rubocop'
@@ -92,3 +92,9 @@ gem 'devise-bootstrap-views'
 
 # Test coverage percentage Coveralls
 gem 'coveralls', require: false
+
+# For user custom roles permissions
+# Rolify
+gem "rolify"
+# Pundit
+gem "pundit"
