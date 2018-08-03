@@ -2,14 +2,18 @@
 
 class UserPolicy < ApplicationPolicy
   def index?
-    user.has_role?(:lunch_admin)
+    lunch_admin?
   end
 
   def show?
-    user.has_role?(:lunch_admin) || user.equal?(record)
+    lunch_admin? || same_user?
   end
 
   def update?
+    same_user?
+  end
+
+  def same_user?
     user.equal?(record)
   end
 end
