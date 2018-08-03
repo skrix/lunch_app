@@ -36,6 +36,8 @@ class ApplicationPolicy
     false
   end
 
+  private
+
   def lunch_admin?
     user.has_role?(:lunch_admin)
   end

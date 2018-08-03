@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserPolicy do
+describe UserPolicy do
   let!(:lunch_admin) { create(:user) }
   let!(:random_user) { create(:user) }
 
@@ -17,7 +17,7 @@ RSpec.describe UserPolicy do
 
   permissions :show? do
     it 'denies access for an random_user view other user profile' do
-      expect(subject).not_to permit(random_user, create(:user))
+      expect(subject).not_to permit(random_user, lunch_admin)
     end
     it 'allows access for user' do
       expect(subject).to permit(random_user, random_user)
@@ -32,7 +32,7 @@ RSpec.describe UserPolicy do
       expect(subject).not_to permit(lunch_admin, random_user)
     end
     it 'denies access for an random_user view other user profile' do
-      expect(subject).not_to permit(random_user, create(:user))
+      expect(subject).not_to permit(random_user, lunch_admin)
     end
     it 'allows access for user' do
       expect(subject).to permit(random_user, random_user)
