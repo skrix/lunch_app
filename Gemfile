@@ -87,7 +87,7 @@ gem 'devise'
 gem 'hamlit'
 
 # Bootstrap
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 
 # Test coverage percentage Coveralls
@@ -95,6 +95,6 @@ gem 'coveralls', require: false
 
 # For user custom roles permissions
 # Rolify
-gem "rolify"
+gem 'rolify'
 # Pundit
-gem "pundit"
+gem 'pundit'

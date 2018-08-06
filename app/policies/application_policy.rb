@@ -36,6 +36,12 @@ class ApplicationPolicy
     false
   end
 
+  private
+
+  def lunch_admin?
+    user.has_role?(:lunch_admin)
+  end
+
   class Scope
     attr_reader :user, :scope
 
