@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :meals
   resources :items
   resources :menus
   resources :users
