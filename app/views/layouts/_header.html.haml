@@ -1,3 +1,5 @@
 = nav_bar static: :top, brand: 'lunch ordering', brand_link: root_path do
-  - if user_signed_in?
-    = button_to( t('actions.auth.sign_out'), destroy_user_session_path, method: :delete, class: 'button btn btn-primary')
+  = menu_group do
+    = menu_item 'Home', root_path
+    - if user_signed_in?
+      = menu_item t('actions.auth.sign_out'), destroy_user_session_path, method: :delete
