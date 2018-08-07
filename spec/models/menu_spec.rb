@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Menu, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let(:menu) { create(:menu) }
+
+  it 'is valid with valid attributes' do
+    expect(menu).to be_valid
+  end
+
+  context 'with invalid attributes' do
+    it { should have_many(:meals) }
+  end
 end

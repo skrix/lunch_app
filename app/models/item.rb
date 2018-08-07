@@ -5,6 +5,7 @@ class Item < ApplicationRecord
 
   has_many :meals
 
+  validates :name, :price, :kind, presence: true
   validates :kind, inclusion: { in: KINDS }
 
   enum kind: KINDS
