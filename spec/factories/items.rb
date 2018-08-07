@@ -4,15 +4,15 @@ FactoryBot.define do
     price { Faker::Number.decimal(3, 2) }
 
     trait :first do
-      type 'first_lunch'
+      kind 'first_lunch'
     end
 
     trait :second do
-      type 'second_lunch'
+      kind 'second_lunch'
     end
 
     trait :drink do
-      type 'drink'
+      kind 'drink'
     end
   end
 end
