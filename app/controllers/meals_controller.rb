@@ -3,35 +3,12 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: %i[show edit update destroy]
 
-  def index
-    @meals = Meal.all
-  end
-
-  def new
-    @meal = Meal.new
-  end
-
   def create
-    @meal = Meal.new(meal_params)
+    @meal = Meals::Create.call(meal_params: meal_params)
 
-    if @meal.save
-      redirect_to @meal, notice: 'Meal was successfully created.'
-    else
-      render :new
-    end
-  end
+    return respond_with(@item) unless @item.valid?
 
-  def update
-    if @meal.update(meal_params)
-      redirect_to @meal, notice: 'Meal was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @meal.destroy
-    redirect_to meals_url, notice: 'Meal was successfully destroyed.'
+    render :show
   end
 
   private
@@ -41,6 +18,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:price, :menu, :item)
+    params.require(:meal).permit(:price, :item_id, :menu_id)
   end
 end

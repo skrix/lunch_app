@@ -12,29 +12,25 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = Menu.new(menu_params)
+    @menu = Menus::Create.call(menu_params: menu_params)
 
-    if @menu.save
-      redirect_to @menu, notice: 'Menu was successfully created.'
-    else
-      render :new
-    end
+    return respond_with(@menu) unless @menu.valid?
+
+    render :show
   end
 
   def update
-    if @menu.update(menu_params)
-      redirect_to @menu, notice: 'Menu was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @menu.destroy
-    redirect_to menus_url, notice: 'Menu was successfully destroyed.'
+    respond_with update_menu, location: menu_path(@menu)
   end
 
   private
+
+  def update_menu
+    Menus::Update.call(
+      menu:        @menu,
+      menu_params: menu_params
+    )
+  end
 
   def set_menu
     @menu = Menu.find(params[:id])

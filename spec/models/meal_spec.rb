@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Meal, type: :model do
-
+describe Meal, type: :model do
   let(:first)  { create(:meal, :first) }
   let(:second) { create(:meal, :second) }
   let(:drink)  { create(:meal, :drink) }

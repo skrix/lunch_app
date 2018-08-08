@@ -12,29 +12,25 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Items::Create.call(item_params: item_params)
 
-    if @item.save
-      redirect_to @item, notice: 'Item was successfully created.'
-    else
-      render :new
-    end
+    return respond_with(@item) unless @item.valid?
+
+    render :show
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to @item, notice: 'Item was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @item.destroy
-    redirect_to items_url, notice: 'Item was successfully destroyed.'
+    respond_with update_item, location: item_path(@item)
   end
 
   private
+
+  def update_item
+    Items::Update.call(
+      item:        @item,
+      item_params: item_params
+    )
+  end
 
   def set_item
     @item = Item.find(params[:id])

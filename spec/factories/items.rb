@@ -1,18 +1,21 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
+
   factory :item do
     name  { Faker::Food.dish }
     price { Faker::Number.decimal(3, 2) }
 
     trait :first do
-      kind 'first_lunch'
+      kind Item::FIRST_LUNCH
     end
 
     trait :second do
-      kind 'second_lunch'
+      kind Item::SECOND_LUNCH
     end
 
     trait :drink do
-      kind 'drink'
+      kind Item::DRINK
     end
   end
 end

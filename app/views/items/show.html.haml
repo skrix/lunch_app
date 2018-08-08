@@ -4,6 +4,6 @@
 %p
   %strong Price:
   = @item.price
-= link_to 'Edit', edit_item_path(@item)
+= link_to t('actions.edit'), edit_item_path(@item)
 |
-= link_to 'Back', items_path
+= link_to t('actions.back'), :back

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_07_103410) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "kind", default: 0, null: false
+    t.string "kind", default: "first", null: false
   end
 
   create_table "meals", force: :cascade do |t|

@@ -1,5 +1,6 @@
 en:
   title: 'Lunch Ordering App'
+  error: 'Error'
   questions:
     assurance: 'Are you sure?'
   actions:
