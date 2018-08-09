@@ -7,7 +7,7 @@ module Menus
     end
 
     def call
-      @menu = Menu.create()
+      @menu = Menu.create
       create_meals
       @menu
     end

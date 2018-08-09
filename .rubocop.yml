@@ -14,6 +14,8 @@ AllCops:
     - 'Guardfile'
     - 'node_modules/**/*'
     - '**/*.arb'
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'config/initializers/simple_form.rb'
 
 
 # === METRICS =================================================================================== #
