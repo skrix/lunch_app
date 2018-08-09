@@ -37,6 +37,6 @@ class MenusController < ApplicationController
   end
 
   def menu_params
-    params.fetch(:menu, {})
+    params.require(:menu).permit!
   end
 end

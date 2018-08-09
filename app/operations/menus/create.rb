@@ -7,11 +7,26 @@ module Menus
     end
 
     def call
-      Menu.create(menu_params)
+      @menu = Menu.create()
+      create_meals
+      @menu
     end
 
     private
 
-    attr_reader :menu_params
+    attr_reader :menu_params, :menu
+
+    def create_meals
+      included_items.each do |id|
+        item = Item.find(id.to_i)
+        Meals::Create.call(meal_params: { item_id: id.to_i, menu_id: menu.id, price: item.price })
+      end
+    end
+
+    def included_items
+      items = menu_params.fetch(:item_ids)
+      items.shift
+      items
+    end
   end
 end
