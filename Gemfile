@@ -99,3 +99,6 @@ gem 'coveralls', require: false
 gem 'rolify'
 # Pundit
 gem 'pundit'
+
+# SimpleForm gem for forms rendering
+gem 'simple_form'
