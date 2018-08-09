@@ -8,13 +8,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %div.container
-      - unless notice.nil?
-        %div.alert.alert-info= notice
-
-      - unless alert.nil?
-        %div.alert.alert-danger= alert
-
-      - if user_signed_in?
-        = button_to( t('actions.auth.sign_out'), destroy_user_session_path, method: :delete, class: 'button btn btn-primary')
+    = render partial: 'layouts/header'
+    .container.main
+      = bootstrap_flash
+    %div.container.yielded
       = yield

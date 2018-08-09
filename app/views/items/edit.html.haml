@@ -1,0 +1,5 @@
+%h1= "#{t('actions.editing')} #{t('activerecord.models.item.one')}"
+= render 'form', item: @item
+= link_to t('actions.show'), @item
+|
+= link_to t('actions.back'), :back

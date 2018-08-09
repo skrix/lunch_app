@@ -1,0 +1,5 @@
+= nav_bar static: :top, brand: t('title'), brand_link: root_path do
+  = menu_group do
+    = menu_item 'Home', root_path
+    - if user_signed_in?
+      = menu_item t('actions.auth.sign_out'), destroy_user_session_path, method: :delete

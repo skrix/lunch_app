@@ -1,5 +1,6 @@
 en:
   title: 'Lunch Ordering App'
+  error: 'Error'
   questions:
     assurance: 'Are you sure?'
   actions:
@@ -16,6 +17,7 @@ en:
       create: "%{resource} was successfully created."
       update: "%{resource} was successfully updated."
       destroy: "%{resource} was successfully destroyed."
+    editing: 'Editing'
   show: 'Show'
   back: 'Back'
   submit: 'Submit'
@@ -24,7 +26,16 @@ en:
       user:
         one: 'User'
         many: 'Users'
+      item:
+        one: 'Item'
+        many: 'Items'
+      menu:
+        one: 'Menu'
+        many: 'Menus'
     attributes:
       user:
         email: 'Email'
         password: 'Password'
+      item:
+        name: 'Name'
+        price: 'Price'
