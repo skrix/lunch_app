@@ -1,17 +1,5 @@
-= form_with(model: item, local: true) do |form|
-  - if item.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(item.errors.count, t('error'))
-        prohibited this item from being saved:
-      %ul
-        - item.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :name
-    = form.text_field :name
-  .field
-    = form.label :price
-    = form.text_field :price
-  .actions
-    = form.submit
+= simple_form_for @item do |f|
+  = f.input :name
+  = f.input :kind, as: :select, collection: Item::kinds
+  = f.input :price
+  = f.button :submit
