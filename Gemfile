@@ -102,3 +102,6 @@ gem 'pundit'
 
 # SimpleForm gem for forms rendering
 gem 'simple_form'
+# Cocoon \0/
+gem 'cocoon'
+gem 'jquery-rails'

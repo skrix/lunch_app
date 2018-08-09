@@ -37,6 +37,8 @@ class MenusController < ApplicationController
   end
 
   def menu_params
-    params.require(:menu).permit!
+    params.require(:menu).permit(
+      meals_attributes: %i[id _destroy price item_id]
+    )
   end
 end

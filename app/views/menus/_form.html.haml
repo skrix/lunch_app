@@ -1,3 +1,8 @@
 = simple_form_for @menu do |f|
-  = f.association :items, label_method: :name, value_method: :id, include_blank: false
-  = f.button :submit
+  %h3 Meals
+  #meals
+    = f.simple_fields_for :meals do |meal|
+      = render 'meal_fields', f: meal
+    .links
+      = link_to_add_association "#{t('actions.add')} #{t('activerecord.models.meal.one')}", f, :meals
+  = f.submit
