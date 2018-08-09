@@ -1,10 +1,16 @@
 body {
-  background-color: #fff;
+  background: image-url('bg.jpg');
+  background-size: cover;
   color: #333;
   margin: 0;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+div.container.yielded{
+  background-color: rgba(255, 255, 255, 0.95);
+  height: 90vh;
+  width: 120rem;
 }
 
 p, ol, ul, td {
@@ -81,4 +87,10 @@ div {
 
 label {
   display: block;
+}
+
+
+.tab-content {
+  color: black;
+  padding: 15px 15px;
 }

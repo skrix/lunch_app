@@ -1,4 +1,4 @@
-%h1 Editing Item
+%h1= "#{t('actions.editing')} #{t('activerecord.models.item.one')}"
 = render 'form', item: @item
 = link_to t('actions.show'), @item
 |

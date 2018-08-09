@@ -1,15 +1,11 @@
-%h1 Menus
-%table
-  %thead
-    %tr
-      %th Day
-      %th{ colspan: "3" }
-  %tbody
-    - @menus.each do |menu|
-      %tr
-        %td= menu.created_at.strftime("%A %d %B")
-        %td= link_to t('actions.show'), menu
-        %td= link_to t('actions.edit'), edit_menu_path(menu)
-        %td= link_to t('actions.destroy'), menu, method: :delete, data: { confirm: t('questions.assurance') }
+%h1= t('activerecord.models.menu.many')
+
+%ul.nav.nav-tabs
+  - @menus.each do |menu|
+    %li.nav-item
+      = link_to "#{menu.created_at.strftime("%A %d %B")}", menu
+
 %br/
-= link_to 'New Menu', new_menu_path
+%hr/
+= link_to "#{t('actions.new')} #{t('activerecord.models.menu.one')}", new_menu_path
+

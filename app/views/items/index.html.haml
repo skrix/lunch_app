@@ -1,9 +1,9 @@
-%h1 Items
+%h1= t('activerecord.models.item.many')
 %table
   %thead
     %tr
-      %th Name
-      %th Price
+      %th= t('activerecord.attributes.item.name')
+      %th= t('activerecord.attributes.item.price')
       %th{ colspan: "3" }
   %tbody
     - @items.each do |item|
@@ -14,4 +14,4 @@
         %td= link_to t('actions.edit'), edit_item_path(item)
         %td= link_to t('actions.destroy'), item, method: :delete, data: { confirm: t('questions.assurance') }
 %br/
-= link_to 'New Item', new_item_path
+= link_to "#{t('actions.new')} #{t('activerecord.models.item.one')}", new_item_path
