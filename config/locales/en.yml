@@ -4,6 +4,7 @@ en:
   questions:
     assurance: 'Are you sure?'
   actions:
+    add: 'Add'
     new: 'New'
     create: 'Create'
     show: 'Show'
@@ -32,6 +33,9 @@ en:
       menu:
         one: 'Menu'
         many: 'Menus'
+      meal:
+        one: 'Meal'
+        many: 'Meals'
     attributes:
       user:
         email: 'Email'

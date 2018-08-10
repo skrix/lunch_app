@@ -1,11 +1,8 @@
-= form_with(model: menu, local: true) do |form|
-  - if menu.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(menu.errors.count, t('error'))
-        prohibited this menu from being saved:
-      %ul
-        - menu.errors.full_messages.each do |message|
-          %li= message
-  .actions
-    = form.submit
+= simple_form_for @menu do |f|
+  %h3 Meals
+  #meals
+    = f.simple_fields_for :meals do |meal|
+      = render 'meal_fields', f: meal
+    .links
+      = link_to_add_association "#{t('actions.add')} #{t('activerecord.models.meal.one')}", f, :meals
+  = f.submit

@@ -2,6 +2,7 @@
 
 class Item < ApplicationRecord
   has_many :meals
+  has_many :menus, through: :meals
 
   validates :name, :price, :kind, presence: true
 

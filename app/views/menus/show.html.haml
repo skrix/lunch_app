@@ -11,7 +11,7 @@
       - @menu.meals.each do |meal|
         %tr
           %td= meal.item.name
-          %td= meal.item.price
+          %td= meal.price
 
 = link_to t('actions.edit'), edit_menu_path(@menu)
 |
