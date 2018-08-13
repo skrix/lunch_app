@@ -36,6 +36,9 @@ en:
       meal:
         one: 'Meal'
         many: 'Meals'
+      order:
+        one: 'Order'
+        many: 'Orders'
     attributes:
       user:
         email: 'Email'
@@ -43,3 +46,14 @@ en:
       item:
         name: 'Name'
         price: 'Price'
+        kind: 'Kind'
+        kinds:
+          first_lunch:
+            one: 'First meal'
+            many: 'First meals'
+          second_lunch:
+            one: 'Second meal'
+            many: 'Second meals'
+          drink:
+            one: 'Drink'
+            many: 'Drinks'

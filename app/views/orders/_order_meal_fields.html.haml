@@ -1,5 +1,0 @@
-.nested-fields.well.well-compact
-  .form-inline
-    = f.input :meal_id, as: :select, collection: Meal.all, label_method: :item_name, value_method: :id, label: false, class: 'form-control'
-    = link_to_remove_association f, class: 'btn btn-default btn-xs' do
-      .glyphicon.glyphicon-remove

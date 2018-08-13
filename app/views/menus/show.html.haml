@@ -13,6 +13,12 @@
           %td= meal.item.name
           %td= meal.price
 
-= link_to t('actions.edit'), edit_menu_path(@menu)
+%hr/
+= link_to "#{t('actions.new')} #{t('activerecord.models.order.one')}", new_order_path(menu_id: @menu)
 |
+- if current_user.has_role?(:lunch_admin)
+  = link_to t('actions.edit'), edit_menu_path(@menu)
+  |
 = link_to t('actions.back'), :back
+
+%hr/

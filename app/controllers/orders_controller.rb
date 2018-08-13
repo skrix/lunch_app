@@ -9,6 +9,10 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+
+    @first_lunches  = Orders::NewFacade.new(params).first_lunches
+    @second_lunches = Orders::NewFacade.new(params).second_lunches
+    @drinks         = Orders::NewFacade.new(params).drinks
   end
 
   def create
@@ -19,18 +23,7 @@ class OrdersController < ApplicationController
     render :show
   end
 
-  def update
-    respond_with update_order, location: order_path(@order)
-  end
-
   private
-
-  def update_order
-    Orders::Update.call(
-      order:        @order,
-      order_params: order_params
-    )
-  end
 
   def set_order
     @order = Order.find(params[:id])

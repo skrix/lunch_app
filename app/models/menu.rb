@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Menu < ApplicationRecord
-  has_many :meals, inverse_of: :menu
-  has_many :items, through:    :meals
+  has_many :meals, inverse_of: :menu,  dependent: :nullify
+  has_many :items, through:    :meals, dependent: :nullify
 
   Item.kinds.keys.each do |kind|
     has_many kind.pluralize.to_sym, -> { send(kind) }, class_name: Meal.name

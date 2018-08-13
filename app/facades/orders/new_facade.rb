@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Orders
   class NewFacade
     delegate :first_lunches, :second_lunches, :drinks,
              to: :menu, allow_nil: true
 
-    def initialize(menu_id: menu_id)
-      @menu_id = menu_id
+    def initialize(params)
+      @menu_id = params.fetch(:menu_id)
     end
 
     private
