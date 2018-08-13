@@ -2,7 +2,21 @@
 
 %p
   %b User:
-  = @order.user
+  = @order.user.email
+%table
+  %thead
+    %tr
+      %th= t('activerecord.attributes.item.name')
+      %th= t('activerecord.attributes.item.kind')
+      %th= t('activerecord.attributes.item.price')
+      %th{ colspan: "3" }
+  %tbody
+    - @order.order_meals.each do |order_meal|
+      %tr
+        %td= order_meal.meal.item_name
+        %td= order_meal.meal.item_kind
+        %td= order_meal.meal.price
+%br/
 
 = link_to 'Edit', edit_order_path(@order)
 \|

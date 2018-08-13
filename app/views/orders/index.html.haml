@@ -4,14 +4,12 @@
   %thead
     %tr
       %th User
-      %th
-      %th
-      %th
-
+      %th Ordered
   %tbody
     - @orders.each do |order|
       %tr
-        %td= order.user
+        %td= order.user.email
+        %td= order.created_at.strftime("%T %A %d %B")
         %td= link_to 'Show', order
         %td= link_to 'Edit', edit_order_path(order)
         %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }

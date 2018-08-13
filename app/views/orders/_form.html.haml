@@ -1,13 +1,10 @@
-= form_for @order do |f|
-  - if @order.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      %ul
-        - @order.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for @order do |f|
+  %h3 Order
+  = f.hidden_field :user_id, value: current_user.id
+  #meals
+    = f.simple_fields_for :order_meals do |order_meal|
+      = render 'order_meal_fields', f: order_meal
+    .links
+      = link_to_add_association "#{t('actions.add')} #{t('activerecord.models.meal.one')}", f, :order_meals
+  = f.submit
 
-  .field
-    = f.label :user
-    = f.text_field :user
-  .actions
-    = f.submit 'Save'

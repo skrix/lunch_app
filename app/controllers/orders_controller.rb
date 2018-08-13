@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def update_item
+  def update_order
     Orders::Update.call(
       order:        @order,
       order_params: order_params
@@ -37,6 +37,8 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user_id)
+    params.require(:order).permit(:user_id,
+      order_meals_attributes: %i[id _destroy meal_id order_id]
+    )
   end
 end
