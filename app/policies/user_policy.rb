@@ -8,7 +8,7 @@ class UserPolicy < ApplicationPolicy
   private
 
   def same_user?
-    user.equal?(record)
+    user.eql?(record)
   end
 
   alias_method :index?,  :lunch_admin?

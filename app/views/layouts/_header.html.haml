@@ -2,4 +2,9 @@
   = menu_group do
     = menu_item 'Home', root_path
     - if user_signed_in?
+      - if current_user.has_role?(:lunch_admin)
+        = menu_item 'Orders', orders_path
+        = menu_item 'Users', users_path
+        = menu_item 'Items', items_path
+      = menu_item 'Profile', user_path(current_user.id)
       = menu_item t('actions.auth.sign_out'), destroy_user_session_path, method: :delete
