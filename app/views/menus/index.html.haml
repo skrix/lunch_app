@@ -1,9 +1,9 @@
 %h1= t('activerecord.models.menu.many')
 
 %ul.nav.nav-tabs
-  - @menus.each do |menu|
+  - @facade.menus.last(7).each do |menu|
     %li.nav-item
-      = link_to "#{menu.created_at.strftime("%A %d %B")}", menu
+      = link_to l(menu.created_at, format: :menu), menu
 
 %br/
 %hr/

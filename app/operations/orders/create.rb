@@ -7,7 +7,7 @@ module Orders
     end
 
     def call
-      Order.create(order_params)
+      Order.create(order_params).decorate
     end
 
     private

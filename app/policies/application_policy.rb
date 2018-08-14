@@ -39,7 +39,7 @@ class ApplicationPolicy
   private
 
   def lunch_admin?
-    user.has_role?(:lunch_admin)
+    user.lunch_admin?
   end
 
   def app_admin?

@@ -1,10 +1,10 @@
 = nav_bar static: :top, brand: t('title'), brand_link: root_path do
   = menu_group do
-    = menu_item 'Home', root_path
+    = menu_item t('header.home'), root_path
     - if user_signed_in?
       - if current_user.lunch_admin?
-        = menu_item 'Orders', orders_path
-        = menu_item 'Users', users_path
-        = menu_item 'Items', items_path
-      = menu_item 'Profile', user_path(current_user.id)
+        = menu_item t('header.orders'), orders_path
+        = menu_item t('header.users'), users_path
+        = menu_item t('header.items'), items_path
+      = menu_item t('header.profile'), user_path(current_user.id)
       = menu_item t('actions.auth.sign_out'), destroy_user_session_path, method: :delete

@@ -1,41 +1,27 @@
 require 'rails_helper'
 
 describe UserPolicy do
-  let!(:lunch_admin) { create(:user) }
-  let!(:random_user) { create(:user) }
+  let!(:lunch_admin) { create(:user, :lunch_admin) }
+  let!(:resource)     { create(:user) }
+  let!(:owner)        { resource }
+  let!(:not_owner)    { create(:user) }
 
   subject { described_class }
 
   permissions :index? do
-    it 'denies access if not an lunch_admin' do
-      expect(subject).not_to permit(random_user)
-    end
-    it 'allows access for an lunch_admin' do
-      expect(subject).to permit(lunch_admin)
-    end
+    it_behaves_like 'allowed for lunch_admin'
+    it_behaves_like 'not allowed for non-owner'
   end
 
   permissions :show? do
-    it 'denies access for an random_user view other user profile' do
-      expect(subject).not_to permit(random_user, lunch_admin)
-    end
-    it 'allows access for user' do
-      expect(subject).to permit(random_user, random_user)
-    end
-    it 'allows access for an lunch_admin' do
-      expect(subject).to permit(lunch_admin, random_user)
-    end
+    it_behaves_like 'allowed for owner'
+    it_behaves_like 'allowed for lunch_admin'
+    it_behaves_like 'not allowed for non-owner'
   end
 
   permissions :update? do
-    it 'denies access for an lunch_admin' do
-      expect(subject).not_to permit(lunch_admin, random_user)
-    end
-    it 'denies access for an random_user view other user profile' do
-      expect(subject).not_to permit(random_user, lunch_admin)
-    end
-    it 'allows access for user' do
-      expect(subject).to permit(random_user, random_user)
-    end
+    it_behaves_like 'allowed for owner'
+    it_behaves_like 'not allowed for lunch_admin'
+    it_behaves_like 'not allowed for non-owner'
   end
 end

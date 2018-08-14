@@ -1,15 +1,15 @@
-%h1 Listing orders
+%h1= t('activerecord.models.order.many')
 
 %table
   %thead
     %tr
-      %th User
-      %th Ordered
+      %th= t('activerecord.attributes.order.orderer')
+      %th= t('activerecord.attributes.order.ordered')
   %tbody
-    - @orders.each do |order|
+    - @facade.orders.each do |order|
       %tr
-        %td= order.user.email
-        %td= order.created_at.strftime("%T %A %d %B")
+        %td= order.user_email
+        %td= order.ordered_time
         %td= link_to t('actions.show'), order
 
 %hr/

@@ -8,7 +8,7 @@ module Menus
     end
 
     def call
-      menu&.update(menu_params)
+      menu.update(menu_params)
     end
 
     private

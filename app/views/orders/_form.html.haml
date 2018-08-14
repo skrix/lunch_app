@@ -1,18 +1,18 @@
-= simple_form_for @order do |f|
+= simple_form_for facade.order do |f|
   %h3 Order
   = f.hidden_field :user_id, value: current_user.id
   #meals
-    = f.simple_fields_for :order_meals, @order.order_meals.build do |order_meal|
+    = f.simple_fields_for :order_meals, facade.order_meals.build do |order_meal|
       .nested-fields.well.well-compact
         .form-inline
-          = order_meal.input :meal_id, as: :select, collection: @first_lunches, label_method: :item_name, value_method: :id, label: t('activerecord.attributes.item.kinds.first_lunch.one'), class: 'form-control'
-    = f.simple_fields_for :order_meals, @order.order_meals.build do |order_meal|
+          = order_meal.input :meal_id, as: :select, collection: facade.first_lunches, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.first_lunch.one'), class: 'form-control'
+    = f.simple_fields_for :order_meals, facade.order_meals.build do |order_meal|
       .nested-fields.well.well-compact
         .form-inline
-          = order_meal.input :meal_id, as: :select, collection: @second_lunches, label_method: :item_name, value_method: :id, label: t('activerecord.attributes.item.kinds.second_lunch.one'), class: 'form-control'
-    = f.simple_fields_for :order_meals, @order.order_meals.build do |order_meal|
+          = order_meal.input :meal_id, as: :select, collection: facade.second_lunches, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.second_lunch.one'), class: 'form-control'
+    = f.simple_fields_for :order_meals, facade.order_meals.build do |order_meal|
       .nested-fields.well.well-compact
         .form-inline
-          = order_meal.input :meal_id, as: :select, collection: @drinks, label_method: :item_name, value_method: :id, label: t('activerecord.attributes.item.kinds.drink.one'), class: 'form-control'
+          = order_meal.input :meal_id, as: :select, collection: facade.drinks, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.drink.one'), class: 'form-control'
   = f.submit
 

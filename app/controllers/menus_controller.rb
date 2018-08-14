@@ -1,47 +1,44 @@
 # frozen_string_literal: true
 
 class MenusController < ApplicationController
-  before_action :set_menu, only: %i[show edit update destroy]
+  before_action :set_menu, except: %i[index new create]
+  before_action :check_policy
 
   def index
-    authorize(Menu)
-
-    @menus = Menu.all
+    @facade = Menus::IndexFacade.new
   end
 
   def new
-    authorize(Menu)
-
-    @menu = Menu.new
+    @facade = Menus::NewFacade.new
   end
 
   def create
-    authorize(Menu)
-
     @menu = Menus::Create.call(menu_params: menu_params)
 
     return respond_with(@menu) unless @menu.valid?
 
-    render :show
+    redirect_to @menu
   end
 
   def update
-    authorize(@menu)
-
-    respond_with update_menu, location: menu_path(@menu)
+    respond_with update_menu, location: menu_path(@facade.menu)
   end
 
   private
 
+  def check_policy
+    authorize(@menu || Menu)
+  end
+
   def update_menu
     Menus::Update.call(
-      menu:        @menu,
+      menu:        @facade.menu,
       menu_params: menu_params
     )
   end
 
   def set_menu
-    @menu = Menu.find(params[:id])
+    @facade = Menus::ShowFacade.new(params)
   end
 
   def menu_params

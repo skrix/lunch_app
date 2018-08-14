@@ -1,21 +1,22 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, except: %i[index]
+  before_action :check_policy
 
   def index
-    authorize(User)
-
     @users = User.all
   end
 
   def update
-    authorize(@user)
-
     respond_with update_user, location: user_path(@user)
   end
 
   private
+
+  def check_policy
+    authorize(@user || User)
+  end
 
   def set_user
     @user = User.find(params[:id])

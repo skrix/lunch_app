@@ -2,16 +2,33 @@
 
 module Orders
   class NewFacade
-    delegate :first_lunches, :second_lunches, :drinks,
-             to: :menu, allow_nil: true
+    def initialize(params = {})
+      @menu_id = params[:menu_id]
+    end
 
-    def initialize(params)
-      @menu_id = params.fetch(:menu_id)
+    def order
+      @order ||= Order.new
+    end
+
+    def order_meals
+      @order.order_meals
+    end
+
+    def first_lunches
+      @first_lunches ||= menu&.first_lunches&.decorate
+    end
+
+    def second_lunches
+      @second_lunches ||= menu&.second_lunches&.decorate
+    end
+
+    def drinks
+      @drinks ||= menu&.drinks&.decorate
     end
 
     private
 
-    attr_reader :menu_id
+    attr_reader :menu_id, :params
 
     def menu
       @menu ||= Menu.find_by(id: menu_id)

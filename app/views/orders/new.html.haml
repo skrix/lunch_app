@@ -1,5 +1,5 @@
-%h1 New order
+%h1= "#{t('actions.new')} #{t('activerecord.models.order.one')}"
 
-= render 'form'
+= render 'form', facade: @facade
 
 = link_to t('actions.back'), :back

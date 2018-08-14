@@ -8,7 +8,7 @@ class OrderPolicy < ApplicationPolicy
   private
 
   def order_owner?
-    user.id.eql?(record.user_id)
+    user == record.user
   end
 
   alias_method :index?,  :lunch_admin?

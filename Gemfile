@@ -103,6 +103,8 @@ gem 'pundit'
 
 # SimpleForm gem for forms rendering
 gem 'simple_form'
-# Cocoon \0/
+# Cocoon
 gem 'cocoon'
 gem 'jquery-rails'
+# Drapper decorators
+gem 'draper'

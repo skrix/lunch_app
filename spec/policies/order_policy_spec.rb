@@ -1,55 +1,33 @@
 require 'rails_helper'
 
 describe OrderPolicy do
-  let!(:lunch_admin) { create(:user) }
-  let!(:random_user) { create(:user) }
-  let!(:mortal_user) { create(:user) }
-  let!(:order)   { create(:order, user: random_user) }
+  let!(:lunch_admin)  { create(:user, :lunch_admin) }
+  let!(:owner)        { create(:user) }
+  let!(:not_owner)    { create(:user) }
+  let!(:resource)     { create(:order, user: owner) }
 
   subject { described_class }
 
   permissions :index? do
-    it 'denies access if not an lunch_admin' do
-      expect(subject).not_to permit(random_user)
-    end
-    it 'allows access for an lunch_admin' do
-      expect(subject).to permit(lunch_admin)
-    end
+    it_behaves_like 'allowed for lunch_admin'
+    it_behaves_like 'not allowed for non-owner'
   end
 
   permissions :show? do
-    it 'denies access for an random_user view other user orders' do
-      expect(subject).not_to permit(mortal_user, order)
-    end
-    it 'allows access for owner user' do
-      expect(subject).to permit(random_user, order)
-    end
-    it 'allows access for an lunch_admin' do
-      expect(subject).to permit(lunch_admin, order)
-    end
+    it_behaves_like 'allowed for lunch_admin'
+    it_behaves_like 'allowed for owner'
+    it_behaves_like 'not allowed for non-owner'
   end
 
   permissions :update? do
-    it 'denies access for an lunch_admin' do
-      expect(subject).not_to permit(lunch_admin, order)
-    end
-    it 'denies access for an owner_user' do
-      expect(subject).not_to permit(random_user, order)
-    end
-    it 'denies access for an random_user' do
-      expect(subject).not_to permit(mortal_user, order)
-    end
+    it_behaves_like 'not allowed for lunch_admin'
+    it_behaves_like 'not allowed for non-owner'
+    it_behaves_like 'not allowed for owner'
   end
 
   permissions :create? do
-    it 'allows access for an lunch_admin' do
-      expect(subject).to permit(lunch_admin)
-    end
-    it 'allows access for an owner_user' do
-      expect(subject).to permit(random_user)
-    end
-    it 'allows access for an random_user' do
-      expect(subject).to permit(mortal_user)
-    end
+    it_behaves_like 'allowed for lunch_admin'
+    it_behaves_like 'allowed for non-owner'
+    it_behaves_like 'allowed for owner'
   end
 end

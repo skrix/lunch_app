@@ -1,8 +1,6 @@
-%p#notice= notice
-
 %p
-  %b User:
-  = @order.user.email
+  %b= t('activerecord.attributes.order.orderer')
+  = @order.user_email
 %table
   %thead
     %tr
@@ -13,8 +11,8 @@
   %tbody
     - @order.order_meals.each do |order_meal|
       %tr
-        %td= order_meal.meal.item_name
-        %td= order_meal.meal.item_kind
-        %td= order_meal.meal.price
+        %td= order_meal.meal_name
+        %td= order_meal.meal_kind
+        %td= order_meal.meal_price
 %br/
 = link_to t('actions.back'), menus_path

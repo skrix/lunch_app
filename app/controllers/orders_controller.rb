@@ -1,27 +1,19 @@
 # frozen_string_literal: true
 
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show edit update destroy]
+  before_action :check_policy
+
+  decorates_assigned :order
 
   def index
-    authorize(Order)
-
-    @orders = Order.all
+    @facade = Orders::IndexFacade.new
   end
 
   def new
-    authorize(Order)
-
-    @order = Order.new
-
-    @first_lunches  = Orders::NewFacade.new(params).first_lunches
-    @second_lunches = Orders::NewFacade.new(params).second_lunches
-    @drinks         = Orders::NewFacade.new(params).drinks
+    @facade = Orders::NewFacade.new(params)
   end
 
   def create
-    authorize(Order)
-
     @order = Orders::Create.call(order_params: order_params)
 
     return respond_with(@order) unless @order.valid?
@@ -29,10 +21,14 @@ class OrdersController < ApplicationController
     render :show
   end
 
+  def show
+    @order = Order.find(params[:id]).decorate
+  end
+
   private
 
-  def set_order
-    @order = Order.find(params[:id])
+  def check_policy
+    authorize(@order || Order)
   end
 
   def order_params

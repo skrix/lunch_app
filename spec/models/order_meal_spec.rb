@@ -1,11 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe OrderMeal, type: :model do
+describe OrderMeal, type: :model do
   let(:order_meal) { create(:order_meal) }
 
-  context 'is valid with valid attributes' do
-    it { expect(order_meal).to be_valid }
-  end
+  it { expect(order_meal).to be_valid }
 
   context 'with invalid attributes' do
     it { should belong_to(:order) }
