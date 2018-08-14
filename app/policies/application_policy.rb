@@ -42,6 +42,10 @@ class ApplicationPolicy
     user.has_role?(:lunch_admin)
   end
 
+  def app_admin?
+    user.has_role?(:app_admin)
+  end
+
   class Scope
     attr_reader :user, :scope
 

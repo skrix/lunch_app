@@ -4,10 +4,14 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[show edit update destroy]
 
   def index
+    authorize(Order)
+
     @orders = Order.all
   end
 
   def new
+    authorize(Order)
+
     @order = Order.new
 
     @first_lunches  = Orders::NewFacade.new(params).first_lunches
@@ -16,6 +20,8 @@ class OrdersController < ApplicationController
   end
 
   def create
+    authorize(Order)
+
     @order = Orders::Create.call(order_params: order_params)
 
     return respond_with(@order) unless @order.valid?
