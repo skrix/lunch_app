@@ -17,6 +17,10 @@ module Menus
       @meals ||= menu.meals.decorate
     end
 
+    def avaliable?
+      @menu.created_at.today?
+    end
+
     private
 
     attr_reader :params

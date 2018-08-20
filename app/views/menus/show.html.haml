@@ -14,7 +14,8 @@
           %td= meal.price
 
 %hr/
-= link_to "#{t('actions.new')} #{t('activerecord.models.order.one')}", new_order_path(menu_id: @facade.menu)
+- if @facade.avaliable?
+  = link_to "#{t('actions.new')} #{t('activerecord.models.order.one')}", new_order_path(menu_id: @facade.menu)
 |
 - if current_user.lunch_admin?
   = link_to t('actions.edit'), edit_menu_path(@facade.menu)

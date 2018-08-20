@@ -6,4 +6,8 @@ class MenuDecorator < ApplicationDecorator
   delegate :name, :kind, to:        :item,
                          allow_nil: true,
                          prefix:    true
+
+  def name
+    l(menu.created_at, format: :menu)
+  end
 end
