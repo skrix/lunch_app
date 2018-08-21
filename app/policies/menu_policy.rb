@@ -11,8 +11,8 @@ class MenuPolicy < ApplicationPolicy
     Date.today.on_weekday?
   end
 
-  alias_method :index?,  :trust
-  alias_method :show?,   :trust
+  alias_method :index?,  :allowed
+  alias_method :show?,   :allowed
   alias_method :new?,    :lunch_admin?
   alias_method :update?, :lunch_admin?
 

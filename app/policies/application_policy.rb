@@ -46,6 +46,10 @@ class ApplicationPolicy
     user.has_role?(:app_admin)
   end
 
+  def allowed
+    true
+  end
+
   class Scope
     attr_reader :user, :scope
 

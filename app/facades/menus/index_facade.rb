@@ -5,5 +5,9 @@ module Menus
     def menus
       @menus ||= Menu.all.decorate
     end
+
+    def week_menus
+      menus.last(5)
+    end
   end
 end

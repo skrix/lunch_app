@@ -6,14 +6,10 @@ feature 'Users makes an order' do
 
   before do
     sign_in user
-    visit   menus_path
 
-    choose_menu
+    visit menu_path(menu)
+
     make_order
-  end
-
-  def choose_menu
-    click_link I18n.l(menu.created_at, format: :menu)
   end
 
   def make_order
@@ -21,7 +17,14 @@ feature 'Users makes an order' do
     click_button 'Create Order'
   end
 
-  scenario 'user makes an order' do
-    expect(page).to have_content('Name Kind Price')
+  context 'with valid attributes' do
+    scenario 'user can create an order' do
+      expect(page).to have_content('Name Kind Price')
+    end
+  end
+
+  xcontext 'with invalid attributes' do
+    scenario 'it shows errors' do
+    end
   end
 end

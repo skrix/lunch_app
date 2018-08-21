@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe UserPolicy do
   let!(:lunch_admin) { create(:user, :lunch_admin) }
-  let!(:resource)     { create(:user) }
-  let!(:owner)        { resource }
-  let!(:not_owner)    { create(:user) }
+  let!(:resource)    { create(:user) }
+  let!(:owner)       { resource }
+  let!(:not_owner)   { create(:user) }
 
   subject { described_class }
 

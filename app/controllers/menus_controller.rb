@@ -1,11 +1,21 @@
 # frozen_string_literal: true
 
 class MenusController < ApplicationController
-  before_action :set_menu, except: %i[index new create]
+  before_action :set_menu, only: %i[show edit update]
   before_action :check_policy
+
+  decorates_assigned :menu
 
   def index
     @facade = Menus::IndexFacade.new
+  end
+
+  def show
+    @facade = Menus::CommonFacade.new(menu: menu)
+  end
+
+  def edit
+    @facade = Menus::CommonFacade.new(menu: menu)
   end
 
   def new
@@ -21,7 +31,7 @@ class MenusController < ApplicationController
   end
 
   def update
-    respond_with update_menu, location: menu_path(@facade.menu)
+    respond_with update_menu, location: menu_path(@menu)
   end
 
   private
@@ -32,13 +42,13 @@ class MenusController < ApplicationController
 
   def update_menu
     Menus::Update.call(
-      menu:        @facade.menu,
+      menu:        @menu,
       menu_params: menu_params
     )
   end
 
   def set_menu
-    @facade = Menus::ShowFacade.new(params)
+    @menu = Menu.find_by(id: params[:id])
   end
 
   def menu_params

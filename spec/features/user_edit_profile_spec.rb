@@ -5,7 +5,8 @@ feature 'Edit user profile' do
 
   before do
     sign_in user
-    visit   user_path(user)
+
+    visit user_path(user)
 
     change_info
   end
@@ -17,6 +18,7 @@ feature 'Edit user profile' do
     click_button 'Update User'
   end
 
+  # WIP
   scenario 'edit user profile' do
     expect(page).to have_content('Sign in')
   end

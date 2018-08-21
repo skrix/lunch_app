@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module Menus
-  class ShowFacade
-    def initialize(params = {})
-      @params = params
-      @menu   = Menu.find(params[:id])
+  class CommonFacade
+    def initialize(menu:)
+      @menu = menu
     end
 
     attr_reader :menu
@@ -14,15 +13,11 @@ module Menus
     end
 
     def meals
-      @meals ||= menu.meals.decorate
+      @meals ||= menu.meals
     end
 
     def avaliable?
       @menu.created_at.today?
     end
-
-    private
-
-    attr_reader :params
   end
 end

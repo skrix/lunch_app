@@ -3,8 +3,6 @@
 class OrdersController < ApplicationController
   before_action :check_policy
 
-  decorates_assigned :order
-
   def index
     @facade = Orders::IndexFacade.new
   end
@@ -22,7 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id]).decorate
+    @order = Order.find_by(id: params[:id]).decorate
   end
 
   private

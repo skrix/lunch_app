@@ -12,7 +12,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   alias_method :index?,  :lunch_admin?
-  alias_method :create?, :trust
+  alias_method :create?, :allowed
 
   public :index?, :create?
 end

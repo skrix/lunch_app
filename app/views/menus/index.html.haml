@@ -1,7 +1,7 @@
 %h1= t('activerecord.models.menu.many')
 
 %ul.nav.nav-tabs
-  - @facade.menus.last(7).each do |menu|
+  - @facade.week_menus.each do |menu|
     %li.nav-item
       = link_to menu.name, menu
 

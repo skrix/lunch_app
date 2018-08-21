@@ -1,9 +1,9 @@
-= simple_form_for facade.menu do |f|
-  %h3 Meals
+= simple_form_for facade.menu.object do |f|
+  %h3= t('activerecord.models.meal.many')
   #meals
     = f.simple_fields_for :meals do |meal|
-      = render 'meal_fields', f: meal, facade: facade
+      = render 'meal_fields', f: meal
     .links
       = link_to_add_association "#{t('actions.add')} #{t('activerecord.models.meal.one')}", f, :meals,
-        render_options: {locals: { facade: facade }}
+        render_options: { locals: { facade: facade } }
   = f.submit

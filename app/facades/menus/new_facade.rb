@@ -7,15 +7,11 @@ module Menus
     end
 
     def menu
-      @menu ||= Menu.new
+      @menu ||= Menu.new.decorate
     end
 
     def items
       @items ||= Item.all.decorate
     end
-
-    private
-
-    attr_reader :params
   end
 end

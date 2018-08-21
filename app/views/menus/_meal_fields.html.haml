@@ -1,7 +1,7 @@
 .nested-fields.well.well-compact
   .form-inline
-    = f.input :price, label: false, class: 'form-control'
+    = f.input :price, label: t('activerecord.attributes.item.price'), class: 'form-control'
     = f.input :item_id, as: :select, collection: facade.items, label_method: :item_info,
-      value_method: :id, label: false, class: 'form-control'
+      value_method: :id, label: t('activerecord.models.meal.one'), class: 'form-control'
     = link_to_remove_association f, class: 'btn btn-default btn-xs' do
       .glyphicon.glyphicon-remove
