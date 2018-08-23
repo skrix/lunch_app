@@ -4,6 +4,7 @@ describe OrderDecorator do
   subject { described_class.new(resource) }
 
   user_methods = %i[email]
+
   let(:time)     { Faker::Time.between(DateTime.now - 1, DateTime.now) }
   let(:resource) { create(:order, created_at: time.utc) }
 

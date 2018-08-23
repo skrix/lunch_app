@@ -65,6 +65,8 @@ GEM
     bindex (0.5.0)
     bootsnap (1.3.1)
       msgpack (~> 1.0)
+    bootstrap-datepicker-rails (1.8.0.1)
+      railties (>= 3.0)
     builder (3.2.3)
     capybara (3.4.2)
       addressable
@@ -349,6 +351,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bootsnap (>= 1.1.0)
+  bootstrap-datepicker-rails
   capybara (>= 2.15, < 4.0)
   capybara-selenium
   chromedriver-helper

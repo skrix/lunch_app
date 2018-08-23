@@ -3,7 +3,7 @@
 class Meal < ApplicationRecord
   belongs_to :menu
   belongs_to :item
-  has_many   :order_meals, inverse_of: :order, dependent: :nullify
+  has_many   :order_meals, inverse_of: :meal, dependent: :nullify
 
   validates :price, presence: true
 

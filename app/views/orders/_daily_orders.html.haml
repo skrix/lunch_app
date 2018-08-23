@@ -1,0 +1,3 @@
+= simple_form_for( :created_at_sort, method: :get, url: orders_path ) do |f|
+  = f.input :created_at, input_html: { 'data-provide' => 'datepicker', type: :text }
+  = f.submit

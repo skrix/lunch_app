@@ -9,8 +9,9 @@ describe MealDecorator do
   let(:info)     { [name, price].join(' - ') }
 
   describe '#meal_info' do
-    let(:name)  { resource.item.name }
-    let(:price) { resource.price }
+    let(:meal_item) { resource.item }
+    let(:name)      { meal_item.name }
+    let(:price)     { resource.price }
 
     it 'shows price and name of a meal' do
       expect(subject.meal_info).to eq(info)

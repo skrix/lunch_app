@@ -3,8 +3,10 @@
 class OrdersController < ApplicationController
   before_action :check_policy
 
+  decorates_assigned :order
+
   def index
-    @facade = Orders::IndexFacade.new
+    @facade = Orders::IndexFacade.new(params)
   end
 
   def new
@@ -20,7 +22,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(id: params[:id]).decorate
+    @order = Order.find_by(id: params[:id])
   end
 
   private
@@ -30,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:user_id,
-                                  order_meals_attributes: %i[id _destroy meal_id order_id])
+    params .require(:order).permit(:user_id,
+                                   order_meals_attributes: %i[id _destroy meal_id order_id])
   end
 end

@@ -109,3 +109,5 @@ gem 'cocoon'
 gem 'jquery-rails'
 # Drapper decorators
 gem 'draper'
+# Datepicker
+gem 'bootstrap-datepicker-rails'

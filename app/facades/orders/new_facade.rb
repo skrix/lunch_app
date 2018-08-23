@@ -14,17 +14,8 @@ module Orders
       @order.order_meals.object.build
     end
 
-    def first_lunches
-      @first_lunches ||= menu&.first_lunches
-    end
-
-    def second_lunches
-      @second_lunches ||= menu&.second_lunches
-    end
-
-    def drinks
-      @drinks ||= menu&.drinks
-    end
+    delegate :first_lunches, :second_lunches, :drinks,
+             to: :menu, allow_nil: true
 
     private
 

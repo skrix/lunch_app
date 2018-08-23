@@ -6,6 +6,7 @@ en:
     users: Users
     items: Items
     profile: Profile
+  datepicker_date_format: "%m/%d/%Y"
   error: Error
   questions:
     assurance: Are you sure?

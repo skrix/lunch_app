@@ -3,6 +3,8 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  delegate :lunch_admin?, to: :user
+
   def initialize(user, record)
     @user   = user
     @record = record
@@ -37,10 +39,6 @@ class ApplicationPolicy
   end
 
   private
-
-  def lunch_admin?
-    user.lunch_admin?
-  end
 
   def app_admin?
     user.has_role?(:app_admin)

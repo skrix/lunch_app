@@ -2,21 +2,19 @@
 
 module Menus
   class CommonFacade
+    delegate :meals, to: :menu
+
+    attr_reader :menu
+
     def initialize(menu:)
       @menu = menu
     end
-
-    attr_reader :menu
 
     def items
       @items ||= Item.all.decorate
     end
 
-    def meals
-      @meals ||= menu.meals
-    end
-
-    def avaliable?
+    def available?
       @menu.created_at.today?
     end
   end
