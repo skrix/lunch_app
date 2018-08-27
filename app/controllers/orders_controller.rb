@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params .require(:order).permit(:user_id,
-                                   order_meals_attributes: %i[id _destroy meal_id order_id])
+    params.require(:order).permit(:user_id,
+                                  order_meals_attributes: %i[id _destroy meal_id order_id])
   end
 end

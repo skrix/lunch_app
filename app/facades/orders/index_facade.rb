@@ -11,12 +11,20 @@ module Orders
       @orders ||= Order.all.decorate
     end
 
+    def orders_total
+      orders.inject(0, &method(:sum_orders))
+    end
+
     private
 
     attr_reader :params
 
+    def sum_orders(current_sum, order)
+      current_sum + order.order_price
+    end
+
     def created_at
-      params[:created_at_sort][:created_at]
+      params.dig(:created_at_sort, :created_at)
     end
 
     def date_specified?

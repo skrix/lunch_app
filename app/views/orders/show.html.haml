@@ -14,5 +14,9 @@
         %td= order_meal.meal_name
         %td= order_meal.meal_kind
         %td= order_meal.meal_price
+    %tr
+      %td
+      %th= t('activerecord.attributes.order.total')
+      %td= order.order_price
 %br/
 = link_to t('actions.back'), menus_path

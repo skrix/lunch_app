@@ -58,6 +58,8 @@ en:
       order:
         ordered: Ordered
         orderer: User
+        price: Price
+        total: Total
       item:
         name: Name
         price: Price
