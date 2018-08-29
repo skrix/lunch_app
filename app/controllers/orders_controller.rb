@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def create
     @order = Orders::Create.call(order_params: order_params)
 
-    return respond_with(@order) unless @order.valid?
+    return redirect_with_errors unless @order.persisted?
 
     render :show
   end
@@ -27,12 +27,18 @@ class OrdersController < ApplicationController
 
   private
 
+  def redirect_with_errors
+    redirect_back(fallback_location: new_order_path, notice: 'Your order is invalid!')
+  end
+
   def check_policy
     authorize(@order || Order)
   end
 
   def order_params
-    params.require(:order).permit(:user_id,
-                                  order_meals_attributes: %i[id _destroy meal_id order_id])
+    params
+      .require(:order)
+      .permit(:user_id,
+              order_meals_attributes: %i[id _destroy meal_id order_id])
   end
 end
