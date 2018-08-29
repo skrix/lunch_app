@@ -8,7 +8,7 @@ module Orders
     end
 
     def call
-      order.update(order_params).decorate
+      order.update(order_params)
     end
 
     private

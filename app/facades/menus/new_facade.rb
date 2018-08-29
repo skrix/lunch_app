@@ -7,7 +7,7 @@ module Menus
     end
 
     def menu
-      @menu ||= Menu.new.decorate
+      @menu ||= Menu.new
     end
 
     def items

@@ -15,7 +15,7 @@ class MenusController < ApplicationController
   end
 
   def edit
-    @facade = Menus::CommonFacade.new(menu: menu)
+    @facade = Menus::CommonFacade.new(menu: @menu)
   end
 
   def new

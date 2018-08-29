@@ -11,6 +11,6 @@ feature 'Lunches Admin can browse users' do
   end
 
   scenario 'Lunches Admin can browse registered users' do
-    expect(page).to have_content('Users')
+    expect(page).to have_content(user.email)
   end
 end

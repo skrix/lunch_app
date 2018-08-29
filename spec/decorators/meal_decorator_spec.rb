@@ -6,15 +6,14 @@ describe MealDecorator do
   delegated_methods = %i[name kind]
 
   let(:resource) { create(:meal, :first) }
-  let(:info)     { [name, price].join(' - ') }
 
   describe '#meal_info' do
     let(:meal_item) { resource.item }
     let(:name)      { meal_item.name }
-    let(:price)     { resource.price }
+    let(:price)     { resource.price.to_s }
 
     it 'shows price and name of a meal' do
-      expect(subject.meal_info).to eq(info)
+      expect(subject.meal_info).to include(name, price)
     end
   end
 

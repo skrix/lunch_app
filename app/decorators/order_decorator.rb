@@ -12,12 +12,6 @@ class OrderDecorator < ApplicationDecorator
   end
 
   def order_price
-    @order_price ||= order_meals.inject(0, &method(:sum_prices))
-  end
-
-  private
-
-  def sum_prices(current_sum, order_meal)
-    current_sum + order_meal.meal_price
+    @order_price ||= order_meals.sum(&:meal_price)
   end
 end

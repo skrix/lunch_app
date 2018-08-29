@@ -17,7 +17,7 @@ module Orders
     attr_reader :order_params
 
     def create_order
-      order.tap(&:save).decorate
+      order.tap(&:save)
     end
 
     def order
@@ -35,19 +35,19 @@ module Orders
     end
 
     def meal_with_kind?(kind)
-      meals.exists?("items.kind": kind)
+      meals.exists?(items: { kind: kind })
     end
 
     def meals
-      @meals ||= Meal.where(id: meals_ids)&.joins(:item)
+      @meals ||= Meal.where(id: meals_ids).joins(:item)
     end
 
     def meals_ids
-      @meals_ids ||= meals_params.reduce([]) { |ids, meal| ids << meal.last[:meal_id].to_i }
+      @meals_ids ||= meals_params.map { |meal| meal[:meal_id].to_i }
     end
 
     def meals_params
-      @meals_params ||= order_params.fetch(:order_meals_attributes).to_h
+      @meals_params ||= order_params[:order_meals_attributes].to_h.values
     end
   end
 end

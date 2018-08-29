@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   private
 
   def redirect_with_errors
-    redirect_back(fallback_location: new_order_path, notice: 'Your order is invalid!')
+    redirect_back(fallback_location: new_order_path, notice: t('validation.order.invalid'))
   end
 
   def check_policy

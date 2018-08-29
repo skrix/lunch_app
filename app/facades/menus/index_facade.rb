@@ -2,20 +2,22 @@
 
 module Menus
   class IndexFacade
-    WEEK_DAYS = 5
-
     def menus
       @menus ||= Menu.all.decorate
     end
 
     def week_menus
-      ordered_menus.last(WEEK_DAYS)
+      Menu.where(created_at: this_week_days).decorate
     end
 
     private
 
-    def ordered_menus
-      @ordered_menus ||= Menu.order(created_at: :asc).decorate
+    def this_week_days
+      today.beginning_of_week..today.end_of_week
+    end
+
+    def today
+      Date.today
     end
   end
 end

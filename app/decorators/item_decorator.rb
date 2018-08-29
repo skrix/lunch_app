@@ -2,6 +2,6 @@
 
 class ItemDecorator < ApplicationDecorator
   def item_info
-    "#{name} - #{price}"
+    "#{kind}: #{name} - #{price}"
   end
 end

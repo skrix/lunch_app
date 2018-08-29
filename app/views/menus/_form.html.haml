@@ -1,5 +1,5 @@
-= simple_form_for facade.menu.object do |f|
-  %h3= t('activerecord.models.meal.many')
+= simple_form_for facade.menu do |f|
+  %h3= t('activerecord.models.meal.other')
   #meals
     = f.simple_fields_for :meals do |meal|
       = render 'meal_fields', f: meal, facade: facade

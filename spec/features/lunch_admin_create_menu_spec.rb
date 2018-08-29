@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Lunches Admin can create menu', js: true do
   let!(:lunch_admin) { create(:user, :lunch_admin) }
   let!(:drink)       { create(:item, :drink) }
-  let(:meal_price)   { '1000' }
+  let(:meal_price)   { Faker::Number.decimal(2) }
 
   before do
     sign_in lunch_admin

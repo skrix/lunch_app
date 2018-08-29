@@ -1,6 +1,6 @@
-%h1= t('activerecord.models.order.many')
+%h1= t('activerecord.models.order.other')
 
-=render 'daily_orders', facade: @facade
+= render 'daily_orders', facade: @facade
 
 %table
   %thead
@@ -18,6 +18,6 @@
     %tr
       %td
       %th= t('activerecord.attributes.order.total')
-      %td= @facade.orders_total
+      %td= @facade.orders_cost
 %hr/
 

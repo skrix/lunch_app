@@ -1,5 +1,6 @@
 en:
   title: Lunch Ordering App
+  submit: Submit
   header:
     home: Home
     orders: Orders
@@ -34,23 +35,26 @@ en:
       default: "%a, %d %b %Y %H:%M:%S %z"
       menu: "%A %d %B"
       order: "%T %A %d %B"
+  validation:
+    order:
+      invalid: Your order is invalid!
   activerecord:
     models:
       user:
         one: User
-        many: Users
+        other: Users
       item:
         one: Item
-        many: Items
+        other: Items
       menu:
         one: Menu
-        many: Menus
+        other: Menus
       meal:
         one: Meal
-        many: Meals
+        other: Meals
       order:
         one: Order
-        many: Orders
+        other: Orders
     attributes:
       user:
         email: Email
@@ -67,10 +71,10 @@ en:
         kinds:
           first_lunch:
             one: First meal
-            many: First meals
+            other: First meals
           second_lunch:
             one: Second meal
-            many: Second meals
+            other: Second meals
           drink:
             one: Drink
-            many: Drinks
+            other: Drinks
