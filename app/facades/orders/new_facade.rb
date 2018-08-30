@@ -11,7 +11,7 @@ module Orders
     end
 
     def order_meals
-      @order.order_meals.object.build
+      @order.object_order_meals.build
     end
 
     delegate :first_lunches, :second_lunches, :drinks,

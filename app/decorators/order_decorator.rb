@@ -3,6 +3,9 @@
 class OrderDecorator < ApplicationDecorator
   decorates_association :order_meals
 
+  delegate :order_meals, to:     :object,
+                         prefix: true
+
   delegate :email, to:        :user,
                    allow_nil: true,
                    prefix:    true

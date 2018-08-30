@@ -22,7 +22,7 @@ module Orders
     attr_reader :params
 
     def created_at
-      params.dig(:created_at)
+      params[:created_at]
     end
 
     def date_specified?
