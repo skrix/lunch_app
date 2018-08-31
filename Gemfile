@@ -61,6 +61,7 @@ group :development do
 end
 
 group :test do
+  gem 'timecop'
   # Shoulda matchers
   gem 'shoulda-matchers', '~> 3.1'
   # Adds support for Capybara system testing and selenium driver
