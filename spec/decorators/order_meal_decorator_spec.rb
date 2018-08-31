@@ -5,7 +5,7 @@ describe OrderMealDecorator do
 
   meal_methods = %i[name kind price]
 
-  let(:resource) { create(:order_meal) }
+  let(:resource) { create(:order_meal, :with_order) }
 
   describe 'delegators' do
     meal_methods.each do |method|

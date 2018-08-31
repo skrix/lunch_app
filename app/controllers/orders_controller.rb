@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def create
     @order = Orders::Create.call(order_params: order_params)
 
-    return redirect_with_errors unless @order.persisted?
+    return redirect_with_errors unless @order.valid?
 
     render :show
   end
