@@ -8,7 +8,7 @@ module Items
     end
 
     def call
-      item&.update(item_params)
+      item.update(item_params)
     end
 
     private

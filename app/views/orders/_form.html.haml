@@ -1,0 +1,18 @@
+= simple_form_for facade.order do |f|
+  %h3= t('activerecord.models.order.one')
+  = f.hidden_field :user_id, value: current_user.id
+  #meals
+    = f.simple_fields_for :order_meals, facade.order_meals do |order_meal|
+      .nested-fields.well.well-compact
+        .form-inline
+          = order_meal.input :meal_id, as: :select, collection: facade.first_lunches, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.first_lunch.one'), class: 'form-control'
+    = f.simple_fields_for :order_meals, facade.order_meals do |order_meal|
+      .nested-fields.well.well-compact
+        .form-inline
+          = order_meal.input :meal_id, as: :select, collection: facade.second_lunches, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.second_lunch.one'), class: 'form-control'
+    = f.simple_fields_for :order_meals, facade.order_meals do |order_meal|
+      .nested-fields.well.well-compact
+        .form-inline
+          = order_meal.input :meal_id, as: :select, collection: facade.drinks, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.drink.one'), class: 'form-control'
+  = f.submit
+

@@ -1,45 +1,80 @@
 en:
-  title: 'Lunch Ordering App'
-  error: 'Error'
+  title: Lunch Ordering App
+  submit: Submit
+  header:
+    home: Home
+    orders: Orders
+    users: Users
+    items: Items
+    profile: Profile
+  datepicker_date_format: "%m/%d/%Y"
+  error: Error
   questions:
-    assurance: 'Are you sure?'
+    assurance: Are you sure?
   actions:
-    add: 'Add'
-    new: 'New'
-    create: 'Create'
-    show: 'Show'
-    update: 'Update'
-    destroy: 'Destroy'
-    edit: 'Edit'
+    add: Add
+    new: New
+    create: Create
+    show: Show
+    update: Update
+    destroy: Destroy
+    edit: Edit
     auth:
-      sign_in: 'Sign in'
-      sign_out: 'Sign out'
+      sign_in: Sign in
+      sign_out: Sign out
     success:
       create: "%{resource} was successfully created."
       update: "%{resource} was successfully updated."
       destroy: "%{resource} was successfully destroyed."
-    editing: 'Editing'
-  show: 'Show'
-  back: 'Back'
-  submit: 'Submit'
+    editing: Editing
+  show: Show
+  back: Back
+  submit: Submit
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      menu: "%A %d %B"
+      order: "%T %A %d %B"
+  validation:
+    order:
+      invalid: Your order is invalid!
   activerecord:
     models:
       user:
-        one: 'User'
-        many: 'Users'
+        one: User
+        other: Users
       item:
-        one: 'Item'
-        many: 'Items'
+        one: Item
+        other: Items
       menu:
-        one: 'Menu'
-        many: 'Menus'
+        one: Menu
+        other: Menus
       meal:
-        one: 'Meal'
-        many: 'Meals'
+        one: Meal
+        other: Meals
+      order:
+        one: Order
+        other: Orders
     attributes:
       user:
-        email: 'Email'
-        password: 'Password'
+        email: Email
+        password: Password
+      order:
+        ordered: Ordered
+        orderer: User
+        price: Price
+        total: Total
       item:
-        name: 'Name'
-        price: 'Price'
+        name: Name
+        price: Price
+        kind: Kind
+        kinds:
+          first_lunch:
+            one: First meal
+            other: First meals
+          second_lunch:
+            one: Second meal
+            other: Second meals
+          drink:
+            one: Drink
+            other: Drinks

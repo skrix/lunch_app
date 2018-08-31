@@ -1,11 +1,12 @@
-%h1= t('activerecord.models.menu.many')
+%h1= t('activerecord.models.menu.other')
 
 %ul.nav.nav-tabs
-  - @menus.each do |menu|
+  - @facade.week_menus.each do |menu|
     %li.nav-item
-      = link_to "#{menu.created_at.strftime("%A %d %B")}", menu
+      = link_to menu.name, menu
 
 %br/
 %hr/
-= link_to "#{t('actions.new')} #{t('activerecord.models.menu.one')}", new_menu_path
+- if current_user.lunch_admin?
+  = link_to "#{t('actions.new')} #{t('activerecord.models.menu.one')}", new_menu_path
 

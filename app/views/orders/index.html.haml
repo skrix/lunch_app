@@ -1,0 +1,23 @@
+%h1= t('activerecord.models.order.other')
+
+= render 'daily_orders', facade: @facade
+
+%table
+  %thead
+    %tr
+      %th= t('activerecord.attributes.order.orderer')
+      %th= t('activerecord.attributes.order.ordered')
+      %th= t('activerecord.attributes.order.price')
+  %tbody
+    - @facade.orders.each do |order|
+      %tr
+        %td= order.user_email
+        %td= order.ordered_time
+        %td= order.order_price
+        %td= link_to t('actions.show'), order
+    %tr
+      %td
+      %th= t('activerecord.attributes.order.total')
+      %td= @facade.orders_cost
+%hr/
+

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[show edit update destroy]
+  before_action :set_item, except: %i[index new create]
+  before_action :check_policy
 
   def index
     @items = Item.all
@@ -25,6 +26,10 @@ class ItemsController < ApplicationController
 
   private
 
+  def check_policy
+    authorize(@item || Item)
+  end
+
   def update_item
     Items::Update.call(
       item:        @item,
@@ -37,6 +42,8 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :kind)
+    params
+      .require(:item)
+      .permit(:name, :price, :kind)
   end
 end

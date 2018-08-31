@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-module Meals
+module Orders
   class Create < ::Callable
     def initialize(params = {})
-      @meal_params = params.fetch(:meal_params, {})
+      @order_params = params.fetch(:order_params, {})
     end
 
     def call
-      Meal.create(meal_params)
+      Order.create(order_params)
     end
 
     private
 
-    attr_reader :meal_params
+    attr_reader :order_params
   end
 end

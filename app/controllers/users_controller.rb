@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update]
-
+  before_action :set_user, except: :index
   before_action :check_policy
 
   def index
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
   private
 
   def check_policy
-    authorize(User)
+    authorize(@user || User)
   end
 
   def set_user
@@ -24,7 +23,9 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params
+      .require(:user)
+      .permit(:email, :password)
   end
 
   def update_user

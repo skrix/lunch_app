@@ -51,6 +51,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -68,6 +69,7 @@ group :test do
   gem 'database_cleaner'
   # Capybara
   gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara-selenium'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
@@ -102,6 +104,10 @@ gem 'pundit'
 
 # SimpleForm gem for forms rendering
 gem 'simple_form'
-# Cocoon \0/
+# Cocoon
 gem 'cocoon'
 gem 'jquery-rails'
+# Drapper decorators
+gem 'draper'
+# Datepicker
+gem 'bootstrap-datepicker-rails'

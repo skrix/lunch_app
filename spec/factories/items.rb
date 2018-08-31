@@ -15,6 +15,7 @@ FactoryBot.define do
     end
 
     trait :drink do
+      name { Faker::Beer.name }
       kind Item::DRINK
     end
   end

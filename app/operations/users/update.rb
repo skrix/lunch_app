@@ -8,7 +8,7 @@ module Users
     end
 
     def call
-      user&.update(user_params)
+      user.update(user_params)
     end
 
     private
