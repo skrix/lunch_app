@@ -6,11 +6,18 @@ feature 'Lunches Admin can create menu', js: true do
   let(:meal_price)   { Faker::Number.decimal(2) }
 
   before do
+    set_day_to_monday
+
     sign_in lunch_admin
 
     visit new_menu_path
 
     compose_menu
+  end
+
+  def set_day_to_monday
+    monday = Date.today.beginning_of_week
+    Timecop.travel(monday)
   end
 
   def compose_menu
