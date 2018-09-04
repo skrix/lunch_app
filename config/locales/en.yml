@@ -57,6 +57,7 @@ en:
         other: Orders
     attributes:
       user:
+        username: Username
         email: Email
         password: Password
       order:

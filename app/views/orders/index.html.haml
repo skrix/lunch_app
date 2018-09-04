@@ -11,7 +11,7 @@
   %tbody
     - @facade.orders.each do |order|
       %tr
-        %td= order.user_email
+        %td= order.username
         %td= order.ordered_time
         %td= order.order_price
         %td= link_to t('actions.show'), order

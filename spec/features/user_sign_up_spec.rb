@@ -7,6 +7,7 @@ feature 'User signup' do
   end
 
   def sign_up
+    fill_in 'Username',              with: user_params[:username]
     fill_in 'Email',                 with: user_params[:email]
     fill_in 'Password',              with: user_params[:password]
     fill_in 'Password confirmation', with: user_params[:password_confirmation]

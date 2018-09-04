@@ -6,9 +6,7 @@ class OrderDecorator < ApplicationDecorator
   delegate :order_meals, to:     :object,
                          prefix: true
 
-  delegate :email, to:        :user,
-                   allow_nil: true,
-                   prefix:    true
+  delegate :username,    to: :user
 
   def ordered_time
     l(order.created_at, format: :order)

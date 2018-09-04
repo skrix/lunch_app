@@ -5,12 +5,20 @@ feature 'Users makes an order' do
   let!(:user) { create(:user, :mortal) }
 
   before do
+    set_day_to_monday
+
     sign_in user
 
     visit menu_path(menu)
 
     make_order
   end
+
+  def set_day_to_monday
+    monday = Date.today.beginning_of_week
+    Timecop.travel(monday)
+  end
+
 
   def make_order
     click_link 'New Order'

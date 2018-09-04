@@ -3,7 +3,7 @@ require 'rails_helper'
 describe OrderDecorator do
   subject { described_class.new(resource) }
 
-  user_methods = %i[email]
+  user_methods = %i[username]
 
   let(:time)     { Faker::Time.between(DateTime.now - 1, DateTime.now) }
   let(:resource) { create(:order, created_at: time.utc) }
@@ -18,7 +18,7 @@ describe OrderDecorator do
 
   describe 'delegators' do
     user_methods.each do |method|
-      it { is_expected.to respond_to("user_#{method}".to_s) }
+      it { is_expected.to respond_to(method.to_s) }
     end
   end
 end

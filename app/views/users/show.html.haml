@@ -1,4 +1,6 @@
 %p
+  %strong= t('activerecord.attributes.user.username')
+  = @user.username
   %strong= t('activerecord.attributes.user.email')
   = @user.email
 = link_to t('actions.edit'), edit_user_path(@user)
