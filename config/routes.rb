@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   resources :items
   resources :menus
   resources :users
+
+  namespace :api do
+    namespace :v1 do
+      resources :orders
+    end
+  end
 end

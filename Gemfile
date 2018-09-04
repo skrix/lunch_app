@@ -112,3 +112,5 @@ gem 'jquery-rails'
 gem 'draper'
 # Datepicker
 gem 'bootstrap-datepicker-rails'
+# API
+gem 'fast_jsonapi'
