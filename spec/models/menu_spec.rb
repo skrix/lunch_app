@@ -9,5 +9,6 @@ describe Menu, type: :model do
 
   context 'with invalid attributes' do
     it { should have_many(:meals) }
+    it { should accept_nested_attributes_for (:meals) }
   end
 end

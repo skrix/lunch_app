@@ -3,7 +3,7 @@
 FactoryBot.define do
 
   factory :item do
-    name  { Faker::Food.dish }
+    sequence(:name) { |n| "#{n}_#{Faker::Food.dish.truncate(27)}" }
     price { Faker::Number.decimal(3, 2) }
 
     trait :first do
@@ -15,7 +15,7 @@ FactoryBot.define do
     end
 
     trait :drink do
-      name { Faker::Beer.name }
+      sequence(:name) { |n| "#{n}_#{Faker::Beer.name.truncate(27)}" }
       kind Item::DRINK
     end
   end
