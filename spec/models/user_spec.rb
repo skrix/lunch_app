@@ -16,7 +16,9 @@ describe User, type: :model do
     it { should validate_uniqueness_of(:username) }
 
     it do
-      should validate_length_of(:username).is_at_least(2).is_at_most(30)
+      should validate_length_of(:username)
+              .is_at_least(User::NAME_LENGTH.first)
+              .is_at_most(User::NAME_LENGTH.last)
     end
   end
 end

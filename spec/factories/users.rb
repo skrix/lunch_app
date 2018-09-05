@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :user do
     sequence(:email)      { |n| "#{n}_#{Faker::Internet.email}" }
-    sequence(:username)   { |n| "#{n}_#{Faker::Internet.username(User::NAME_LENGTH).chop.chop}" }
+    sequence(:username)   { |n| "#{n}_#{Faker::Internet.username(10)}" }
     password              { SecureRandom.base64(8) }
     password_confirmation { password }
 
