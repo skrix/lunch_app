@@ -20,7 +20,7 @@ FactoryBot.define do
     end
 
     trait :with_token do
-      authentication_token { SecureRandom.base64(20) }
+      authentication_token { SecureRandom.base64(5) }
     end
   end
 end

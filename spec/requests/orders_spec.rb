@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe 'GET /api/v1/orders' do
-  let!(:orders) { create_list(:order, 10) }
+  let!(:count)  { rand(1..10) }
+  let!(:orders) { create_list(:order, count) }
   let!(:user)   { create(:user, :with_token) }
 
   before do
@@ -15,8 +16,8 @@ describe 'GET /api/v1/orders' do
     expect(response).to have_http_status 200
   end
 
-  it 'returns all users' do
+  it 'returns all orders' do
     body = JSON.parse(response.body)
-    expect(body['data'].size).to eq(10)
+    expect(body['data'].size).to eq(count)
   end
 end

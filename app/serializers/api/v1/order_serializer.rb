@@ -6,9 +6,11 @@ module Api
       include FastJsonapi::ObjectSerializer
 
       set_type :orders
-      set_id :id
+
       attributes :id, :user_id
-      has_many :meals, serializer: Api::V1::MealSerializer
+
+      has_many :meals,  serializer: Api::V1::MealSerializer
+      has_many :items,  serializer: Api::V1::ItemSerializer
       belongs_to :user, serializer: Api::V1::UserSerializer
     end
   end

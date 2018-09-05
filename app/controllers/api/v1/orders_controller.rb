@@ -6,16 +6,9 @@ module Api
       decorates_assigned :order
 
       def index
-        @orders = Order.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day)
-        render json: Api::V1::OrderSerializer.new(@orders, options)
-      end
+        @orders = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
 
-      private
-
-      def options
-        options           = {}
-        options[:include] = %i[user meals]
-        options
+        render json: Api::V1::OrderSerializer.new(@orders, include: %i[user meals items])
       end
     end
   end
