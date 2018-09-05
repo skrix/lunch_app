@@ -112,3 +112,7 @@ gem 'jquery-rails'
 gem 'draper'
 # Datepicker
 gem 'bootstrap-datepicker-rails'
+# API
+gem 'fast_jsonapi'
+# API Secure
+gem 'simple_token_authentication', '~> 1.0'

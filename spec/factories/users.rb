@@ -18,5 +18,9 @@ FactoryBot.define do
     trait :mortal do
       after(:create) { |user| user.remove_role(:lunch_admin) }
     end
+
+    trait :with_token do
+      authentication_token { SecureRandom.base64(5) }
+    end
   end
 end
