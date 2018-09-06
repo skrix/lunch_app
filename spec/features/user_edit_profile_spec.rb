@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Edit user profile' do
   let!(:user) { create(:user, :mortal) }
-  let(:name)  { Faker::SiliconValley.character }
+  let(:name)  { Faker::Internet.username(User::NAME_LENGTH) }
   before do
     sign_in user
 

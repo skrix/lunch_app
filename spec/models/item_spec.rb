@@ -16,5 +16,14 @@ describe Item, type: :model do
     it { should validate_presence_of(:price) }
     it { should validate_presence_of(:kind) }
     it { should have_many(:meals) }
+
+    it { should validate_numericality_of(:price) }
+    it { should validate_uniqueness_of(:name) }
+
+    it do
+      should validate_length_of(:name)
+              .is_at_least(User::NAME_LENGTH.first)
+              .is_at_most(User::NAME_LENGTH.last)
+    end
   end
 end
