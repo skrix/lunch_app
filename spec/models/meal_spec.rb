@@ -24,9 +24,13 @@ describe Meal, type: :model do
   end
 
   context 'with invalid attributes' do
-    it { should validate_presence_of(:price) }
     it { should belong_to(:item) }
     it { should belong_to(:menu) }
-    it { should validate_numericality_of(:price) }
+  end
+
+  context 'with valid price' do
+    it 'set the same price as in item' do
+      expect(first.price).to eq(first.item.price)
+    end
   end
 end

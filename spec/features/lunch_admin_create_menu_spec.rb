@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'Lunches Admin can create menu', js: true do
   let!(:lunch_admin) { create(:user, :lunch_admin) }
   let!(:drink)       { create(:item, :drink) }
-  let(:meal_price)   { Faker::Number.decimal(2) }
 
   before do
     set_day_to_monday
@@ -23,7 +22,6 @@ feature 'Lunches Admin can create menu', js: true do
   def compose_menu
     click_link 'Add Meal'
 
-    fill_in 'Price ', with: meal_price
     select drink.name, from: 'Meal'
 
     click_button 'Create Menu'
@@ -35,9 +33,5 @@ feature 'Lunches Admin can create menu', js: true do
 
   scenario 'lunch_admin can choose meals for menu' do
     expect(page).to have_content(drink.name)
-  end
-
-  scenario 'lunch_admin can set meal price' do
-    expect(page).to have_content(meal_price)
   end
 end
