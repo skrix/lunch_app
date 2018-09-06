@@ -7,7 +7,15 @@ class Meal < ApplicationRecord
 
   validates :price, presence: true, numericality: { greater_than: 0 }
 
+  before_validation :assign_price
+
   Item.kinds.keys.each do |kind|
     scope kind, -> { joins(:item).where(items: { kind: kind }) }
+  end
+
+  private
+
+  def assign_price
+    self.price = item.price
   end
 end
