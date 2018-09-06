@@ -5,7 +5,7 @@ describe MealDecorator do
 
   delegated_methods = %i[name kind]
 
-  let(:resource) { create(:meal, :first) }
+  let(:resource) { create(:meal, :first, :with_menu) }
 
   describe '#meal_info' do
     let(:meal_item) { resource.item }

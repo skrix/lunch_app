@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Lunches Admin can create menu', js: true do
   let!(:lunch_admin) { create(:user, :lunch_admin) }
+  let!(:first)       { create(:item, :first) }
+  let!(:second)      { create(:item, :second) }
   let!(:drink)       { create(:item, :drink) }
 
   before do
@@ -20,11 +22,17 @@ feature 'Lunches Admin can create menu', js: true do
   end
 
   def compose_menu
-    click_link 'Add Meal'
-
-    select drink.name, from: 'Meal'
+    add_meal(first)
+    add_meal(second)
+    add_meal(drink)
 
     click_button 'Create Menu'
+  end
+
+  def add_meal(meal)
+    click_link 'Add Meal'
+
+    find_all('#meals select').last.select meal.name
   end
 
   scenario 'lunch_admin can create menu' do

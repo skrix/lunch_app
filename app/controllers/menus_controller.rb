@@ -25,7 +25,7 @@ class MenusController < ApplicationController
   def create
     @menu = Menus::Create.call(menu_params: menu_params)
 
-    return respond_with(@menu) unless @menu.valid?
+    return redirect_with_errors unless @menu.valid?
 
     redirect_to @menu
   end
@@ -35,6 +35,10 @@ class MenusController < ApplicationController
   end
 
   private
+
+  def redirect_with_errors
+    redirect_back(fallback_location: new_menu_path, notice: t('validation.menu.invalid'))
+  end
 
   def check_policy
     authorize(@menu || Menu)
@@ -53,7 +57,7 @@ class MenusController < ApplicationController
 
   def menu_params
     params
-      .require(:menu)
+      .fetch(:menu, {})
       .permit(meals_attributes: %i[id _destroy item_id])
   end
 end

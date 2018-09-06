@@ -4,7 +4,9 @@ FactoryBot.define do
   factory :meal do
     price { Faker::Number.decimal(3, 2) }
 
-    association :menu, factory: :menu
+    trait :with_menu do
+      association :menu, factory: :menu
+    end
 
     trait :first do
       association :item, factory: %i[item first]

@@ -38,6 +38,8 @@ en:
   validation:
     order:
       invalid: Your order is invalid!
+    menu:
+      invalid: Your menu is invalid!
   activerecord:
     models:
       user:

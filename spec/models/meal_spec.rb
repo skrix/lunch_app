@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe Meal, type: :model do
-  let(:first)  { create(:meal, :first) }
-  let(:second) { create(:meal, :second) }
-  let(:drink)  { create(:meal, :drink) }
+  let(:first)  { create(:meal, :first, :with_menu) }
+  let(:second) { create(:meal, :second, :with_menu) }
+  let(:drink)  { create(:meal, :drink, :with_menu) }
 
   context 'meal first_lunch' do
     it 'is valid with valid attributes' do
