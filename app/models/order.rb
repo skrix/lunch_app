@@ -14,9 +14,7 @@ class Order < ApplicationRecord
   validate :full?
 
   def full?
-    return if (Item.kinds.keys - ordered_kinds).blank?
-
-    errors.add(:meals)
+    errors.add(:meals) unless (Item.kinds.keys - ordered_kinds).blank?
   end
 
   def ordered_kinds

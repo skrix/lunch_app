@@ -37,7 +37,7 @@ class MenusController < ApplicationController
   private
 
   def redirect_with_errors
-    redirect_back(fallback_location: new_menu_path, notice: t('validation.menu.invalid'))
+    redirect_back(fallback_location: new_menu_path, alert: t('validation.menu.invalid'))
   end
 
   def check_policy
@@ -56,7 +56,7 @@ class MenusController < ApplicationController
   end
 
   def full_params
-    Menus::MealPriceSetter.call(menu_params: menu_params)
+    Menus::MealPrice::Setter.call(menu_params: menu_params)
   end
 
   def menu_params

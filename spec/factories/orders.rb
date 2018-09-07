@@ -5,6 +5,6 @@ FactoryBot.define do
         .each { |kind| order.order_meals << build(:order_meal, kind.to_sym) }
     end
 
-    association :user, factory: :user
+    user
   end
 end

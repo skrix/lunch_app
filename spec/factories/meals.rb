@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :meal do
 
     trait :with_menu do
-      association :menu, factory: :menu
+      menu
     end
 
     trait :first do

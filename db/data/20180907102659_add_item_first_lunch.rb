@@ -1,10 +1,10 @@
 class AddItemFirstLunch < SeedMigration::Migration
   def up
-    Item.create!({
+    Item.create!(
       name:  'Borscht',
       price: 999.99,
       kind:  Item::FIRST_LUNCH
-    })
+    )
   end
 
   def down

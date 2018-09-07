@@ -12,8 +12,6 @@ feature 'Lunches Admin can create menu', js: true do
     sign_in lunch_admin
 
     visit new_menu_path
-
-    compose_menu
   end
 
   def set_day_to_monday
@@ -21,11 +19,7 @@ feature 'Lunches Admin can create menu', js: true do
     Timecop.travel(monday)
   end
 
-  def compose_menu
-    add_meal(first)
-    add_meal(second)
-    add_meal(drink)
-
+  def create_menu
     click_button 'Create Menu'
   end
 
@@ -36,10 +30,36 @@ feature 'Lunches Admin can create menu', js: true do
   end
 
   scenario 'lunch_admin can create menu' do
+    add_meal(first)
+    add_meal(second)
+    add_meal(drink)
+    create_menu
+
     expect(page).to have_content('New Order')
   end
 
   scenario 'lunch_admin can choose meals for menu' do
+    add_meal(first)
+    add_meal(second)
+    add_meal(drink)
+    create_menu
+
     expect(page).to have_content(drink.name)
+  end
+
+  context 'with invalid params' do
+    scenario 'lunch_admin can not create empty menu' do
+      create_menu
+
+      expect(page).to have_content(I18n.t('validation.menu.invalid'))
+    end
+
+    scenario 'lunch_admin can not create not full menu' do
+      add_meal(first)
+      add_meal(second)
+      create_menu
+
+      expect(page).to have_content(I18n.t('validation.menu.invalid'))
+    end
   end
 end

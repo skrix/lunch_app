@@ -3,7 +3,7 @@ FactoryBot.define do
     association :meal,  factory: %i[meal first with_menu]
 
     trait :with_order do
-      association :order, factory: :order
+      association :order
     end
 
     trait :first do

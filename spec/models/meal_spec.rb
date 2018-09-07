@@ -30,7 +30,7 @@ describe Meal, type: :model do
 
   context 'with valid price' do
     it 'set the same price as in item' do
-      expect(first.price).to eq(first.item.price)
+      expect(first.price).to eq(first.decorate.item_price)
     end
   end
 end

@@ -15,9 +15,7 @@ class Menu < ApplicationRecord
   validate :full?
 
   def full?
-    return if (Item.kinds.keys - added_kinds).blank?
-
-    errors.add(:meals)
+    errors.add(:meals) unless (Item.kinds.keys - added_kinds).blank?
   end
 
   def added_kinds

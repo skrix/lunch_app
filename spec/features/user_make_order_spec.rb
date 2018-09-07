@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Users makes an order' do
   let(:menu) { create(:menu).decorate }
-  let!(:user) { create(:user, :mortal) }
+  let(:user) { create(:user, :mortal) }
 
   before do
     set_day_to_monday

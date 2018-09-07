@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-
   factory :item do
     sequence(:name) { |n| "#{n}_#{Faker::Food.dish.truncate(10)}" }
     price { Faker::Number.decimal(3, 2) }
