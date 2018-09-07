@@ -116,3 +116,5 @@ gem 'bootstrap-datepicker-rails'
 gem 'fast_jsonapi'
 # API Secure
 gem 'simple_token_authentication', '~> 1.0'
+# Seeds
+gem 'seed_migration'
