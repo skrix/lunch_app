@@ -23,7 +23,7 @@ class MenusController < ApplicationController
   end
 
   def create
-    @menu = Menus::Create.call(menu_params: menu_params)
+    @menu = Menus::Create.call(menu_params: full_params)
 
     return redirect_with_errors unless @menu.valid?
 
@@ -47,12 +47,16 @@ class MenusController < ApplicationController
   def update_menu
     Menus::Update.call(
       menu:        @menu,
-      menu_params: menu_params
+      menu_params: full_params
     )
   end
 
   def set_menu
     @menu = Menu.find_by(id: params[:id])
+  end
+
+  def full_params
+    Menus::MealPriceSetter.call(menu_params: menu_params)
   end
 
   def menu_params

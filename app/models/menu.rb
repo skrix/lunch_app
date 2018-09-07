@@ -17,7 +17,6 @@ class Menu < ApplicationRecord
   def full?
     return if (Item.kinds.keys - added_kinds).blank?
 
-    # binding.pry
     errors.add(:meals)
   end
 
