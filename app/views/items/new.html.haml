@@ -1,3 +1,7 @@
-%h1= "#{t('actions.new')} #{t('activerecord.models.item.one')}"
-= render 'form', item: @item
-= link_to t('actions.back'), :back
+= render 'layouts/page_header', headline: "#{t('actions.new')} #{t('activerecord.models.item.one')}"
+
+%div.content
+  = render 'form', item: @item
+
+%br
+= render 'layouts/page_footer'

@@ -1,8 +1,17 @@
-%p
-  %strong= t('activerecord.attributes.user.username')
-  = @user.username
-  %strong= t('activerecord.attributes.user.email')
-  = @user.email
-= link_to t('actions.edit'), edit_user_path(@user)
-|
-= link_to t('actions.back'), :back
+= render 'layouts/page_header', headline: "#{t('activerecord.models.user.one')}: #{@user.username}"
+
+%div.content
+  %table.table.table-striped
+    %tr
+      %th= t('activerecord.attributes.user.username')
+      %td= @user.username
+    %tr
+      %th= t('activerecord.attributes.user.email')
+      %td= @user.email
+
+
+.col-md-2
+  .col-md-6
+    = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'btn btn-primary'
+  .col-md-6
+    = render 'layouts/page_footer'

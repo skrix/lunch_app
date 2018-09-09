@@ -23,6 +23,10 @@ feature 'Lunches Admin can create menu', js: true do
     click_button 'Create Menu'
   end
 
+  def edit_menu
+    click_button 'Edit'
+  end
+
   def add_meal(meal)
     click_link 'Add Meal'
 
@@ -35,7 +39,7 @@ feature 'Lunches Admin can create menu', js: true do
     add_meal(drink)
     create_menu
 
-    expect(page).to have_content('New Order')
+    expect(page).to have_button('New Order')
   end
 
   scenario 'lunch_admin can choose meals for menu' do
@@ -45,6 +49,22 @@ feature 'Lunches Admin can create menu', js: true do
     create_menu
 
     expect(page).to have_content(drink.name)
+  end
+
+  context 'after create menu' do
+    let!(:additional_meal) { create(:item, :drink) }
+
+    scenario 'lunch_admin can edit menu' do
+      add_meal(first)
+      add_meal(second)
+      add_meal(drink)
+      create_menu
+
+      edit_menu
+      add_meal(additional_meal)
+
+      expect(page).to have_content(additional_meal.name)
+    end
   end
 
   context 'with invalid params' do

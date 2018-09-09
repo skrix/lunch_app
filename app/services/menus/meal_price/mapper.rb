@@ -5,12 +5,12 @@ module Menus
     class Mapper < ::Callable
       delegate :price, to: :item, allow_nil: true
 
-      def initialize(meal)
+      def initialize(meal:)
         @meal = meal
       end
 
       def call
-        { price: price }
+        price
       end
 
       private

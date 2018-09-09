@@ -1,0 +1,15 @@
+body {
+  background: image-url('bg.jpg');
+  background-size: cover;
+  color: #333;
+  margin: 0;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+div.container.page-content {
+  background-color: rgba(255, 255, 255, 0.95);
+  min-height: 90vh;
+  width: 120rem;
+}

@@ -29,8 +29,10 @@ describe Meal, type: :model do
   end
 
   context 'with valid price' do
+    let!(:control_meal) { first.decorate }
+
     it 'set the same price as in item' do
-      expect(first.price).to eq(first.decorate.item_price)
+      expect(control_meal.price).to eq(control_meal.item_price)
     end
   end
 end

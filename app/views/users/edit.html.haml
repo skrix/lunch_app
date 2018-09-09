@@ -1,5 +1,4 @@
-%h1= "#{t('actions.editing')} #{t('activerecord.models.user.one')}"
-= render 'form', user: @user
-= link_to t('actions.show'), @user
-|
-= link_to t('actions.back'), :back
+= render 'layouts/page_header', headline: "#{t('actions.editing')} #{t('activerecord.models.user.one')}: #{@user.username}"
+
+%div.content
+  = render 'form', user: @user

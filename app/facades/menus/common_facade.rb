@@ -3,6 +3,7 @@
 module Menus
   class CommonFacade
     delegate :meals, to: :menu
+    delegate :name,  to: :decorated_menu
 
     attr_reader :menu
 
@@ -16,6 +17,12 @@ module Menus
 
     def available?
       @menu.created_at.today?
+    end
+
+    private
+
+    def decorated_menu
+      @decorated_menu ||= @menu.decorate
     end
   end
 end

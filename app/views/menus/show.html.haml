@@ -1,6 +1,7 @@
-%br/
-.tab-content.clearfix
-  %table
+= render 'layouts/page_header', headline: @facade.name
+
+%div.content
+  %table.table.table-striped
     %thead
       %tr
         %th= t('activerecord.attributes.item.name')
@@ -13,12 +14,13 @@
           %td= meal.price
 
 %hr/
-- if @facade.available?
-  = link_to "#{t('actions.new')} #{t('activerecord.models.order.one')}", new_order_path(menu_id: menu)
-|
-- if current_user.lunch_admin?
-  = link_to t('actions.edit'), edit_menu_path(menu)
-  |
-= link_to t('actions.back'), :back
-
-%hr/
+.col-md-5
+  - if @facade.available?
+    .col-md-3
+      = button_to "#{t('actions.new')} #{t('activerecord.models.order.one')}", new_order_path(menu_id: menu),
+        params: { menu_id: menu }, method: :get, class: 'btn btn-primary'
+  - if current_user.lunch_admin?
+    .col-md-2
+      = button_to t('actions.edit'), edit_menu_path(menu), method: :get, class: 'btn btn-primary'
+  .col-md-2
+    = render 'layouts/page_footer'

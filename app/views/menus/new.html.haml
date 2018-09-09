@@ -1,3 +1,6 @@
-%h1= "#{t('actions.new')} #{t('activerecord.models.menu.one')}"
-= render 'form', facade: @facade
-= link_to t('actions.back'), :back
+= render 'layouts/page_header', headline: "#{t('actions.new')} #{t('activerecord.models.menu.one')}"
+
+%div.content
+  = render 'form', facade: @facade
+%br
+= render 'layouts/page_footer'

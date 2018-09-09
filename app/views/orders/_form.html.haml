@@ -14,5 +14,4 @@
       .nested-fields.well.well-compact
         .form-inline
           = order_meal.input :meal_id, as: :select, collection: facade.drinks, label_method: :meal_info, value_method: :id, label: t('activerecord.attributes.item.kinds.drink.one'), class: 'form-control'
-  = f.submit
-
+    = f.button :submit, class: 'btn btn-primary'

@@ -18,15 +18,15 @@ module Menus
       attr_reader :menu_params
 
       def add_price
-        check_params.values.each { |meal| meal.merge!(map_meal(meal)) }
+        check_params.values.each { |meal| meal[:price] = extract_price(meal) }
       end
 
       def check_params
         menu_params.fetch(:meals_attributes, {})
       end
 
-      def map_meal(meal)
-        Menus::MealPrice::Mapper.call(meal)
+      def extract_price(meal)
+        Menus::MealPrice::Mapper.call(meal: meal)
       end
     end
   end

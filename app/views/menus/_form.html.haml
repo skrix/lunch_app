@@ -6,4 +6,5 @@
     .links
       = link_to_add_association "#{t('actions.add')} #{t('activerecord.models.meal.one')}", f, :meals,
         render_options: { locals: { facade: facade } }
-  = f.submit
+    %br
+    = f.button :submit, class: 'btn btn-primary'
