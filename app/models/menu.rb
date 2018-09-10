@@ -11,4 +11,14 @@ class Menu < ApplicationRecord
   accepts_nested_attributes_for :meals,
                                 reject_if:     :all_blank,
                                 allow_destroy: true
+
+  validate :full?
+
+  def full?
+    errors.add(:meals) unless (Item.kinds.keys - added_kinds).blank?
+  end
+
+  def added_kinds
+    MealDecorator.decorate_collection(meals).map(&:kind).uniq
+  end
 end

@@ -2,12 +2,9 @@
 
 FactoryBot.define do
   factory :menu do
-
-    trait :full do
-      after(:create) do |menu|
-        Item.kinds.values
-          .each { |kind| create(:meal, kind.to_sym,  menu: menu) }
-      end
+    after(:build) do |menu|
+      Item.kinds.values
+        .each { |kind| menu.meals << build(:meal, kind.to_sym) }
     end
   end
 end

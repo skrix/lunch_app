@@ -1,12 +1,12 @@
-%h1= t('activerecord.models.menu.other')
+= render 'layouts/page_header', headline: t('activerecord.models.menu.other')
 
-%ul.nav.nav-tabs
-  - @facade.week_menus.each do |menu|
-    %li.nav-item
-      = link_to menu.name, menu
+%div.content
+  %ul.nav.nav-tabs
+    - @facade.week_menus.each do |menu|
+      %li.nav-item
+        = link_to menu.name, menu
 
 %br/
-%hr/
 - if current_user.lunch_admin?
-  = link_to "#{t('actions.new')} #{t('activerecord.models.menu.one')}", new_menu_path
+  = button_to "#{t('actions.new')} #{t('activerecord.models.menu.one')}", new_menu_path, method: :get, class: 'btn btn-primary'
 

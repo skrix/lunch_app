@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature 'Users makes an order' do
-  let!(:menu) { create(:menu, :full).decorate }
-  let!(:user) { create(:user, :mortal) }
+  let(:menu) { create(:menu).decorate }
+  let(:user) { create(:user, :mortal) }
 
   before do
     set_day_to_monday
@@ -21,7 +21,7 @@ feature 'Users makes an order' do
 
 
   def make_order
-    click_link 'New Order'
+    click_button 'New Order'
 
     select first,  from: 'First meal'
     select second, from: 'Second meal'

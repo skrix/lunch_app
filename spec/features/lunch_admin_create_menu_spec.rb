@@ -2,8 +2,9 @@ require 'rails_helper'
 
 feature 'Lunches Admin can create menu', js: true do
   let!(:lunch_admin) { create(:user, :lunch_admin) }
+  let!(:first)       { create(:item, :first) }
+  let!(:second)      { create(:item, :second) }
   let!(:drink)       { create(:item, :drink) }
-  let(:meal_price)   { Faker::Number.decimal(2) }
 
   before do
     set_day_to_monday
@@ -11,8 +12,6 @@ feature 'Lunches Admin can create menu', js: true do
     sign_in lunch_admin
 
     visit new_menu_path
-
-    compose_menu
   end
 
   def set_day_to_monday
@@ -20,24 +19,67 @@ feature 'Lunches Admin can create menu', js: true do
     Timecop.travel(monday)
   end
 
-  def compose_menu
-    click_link 'Add Meal'
-
-    fill_in 'Price ', with: meal_price
-    select drink.name, from: 'Meal'
-
+  def create_menu
     click_button 'Create Menu'
   end
 
+  def edit_menu
+    click_button 'Edit'
+  end
+
+  def add_meal(meal)
+    click_link 'Add Meal'
+
+    find_all('#meals select').last.select meal.name
+  end
+
   scenario 'lunch_admin can create menu' do
-    expect(page).to have_content('New Order')
+    add_meal(first)
+    add_meal(second)
+    add_meal(drink)
+    create_menu
+
+    expect(page).to have_button('New Order')
   end
 
   scenario 'lunch_admin can choose meals for menu' do
+    add_meal(first)
+    add_meal(second)
+    add_meal(drink)
+    create_menu
+
     expect(page).to have_content(drink.name)
   end
 
-  scenario 'lunch_admin can set meal price' do
-    expect(page).to have_content(meal_price)
+  context 'after create menu' do
+    let!(:additional_meal) { create(:item, :drink) }
+
+    scenario 'lunch_admin can edit menu' do
+      add_meal(first)
+      add_meal(second)
+      add_meal(drink)
+      create_menu
+
+      edit_menu
+      add_meal(additional_meal)
+
+      expect(page).to have_content(additional_meal.name)
+    end
+  end
+
+  context 'with invalid params' do
+    scenario 'lunch_admin can not create empty menu' do
+      create_menu
+
+      expect(page).to have_content(I18n.t('validation.menu.invalid'))
+    end
+
+    scenario 'lunch_admin can not create not full menu' do
+      add_meal(first)
+      add_meal(second)
+      create_menu
+
+      expect(page).to have_content(I18n.t('validation.menu.invalid'))
+    end
   end
 end

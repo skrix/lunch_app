@@ -19,6 +19,10 @@ class User < ApplicationRecord
     has_role?(:lunch_admin)
   end
 
+  def app_admin?
+    has_role?(:app_admin)
+  end
+
   private
 
   def assign_role

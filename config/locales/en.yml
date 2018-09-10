@@ -27,8 +27,8 @@ en:
       update: "%{resource} was successfully updated."
       destroy: "%{resource} was successfully destroyed."
     editing: Editing
-  show: Show
-  back: Back
+    show: Show
+    back: Back
   submit: Submit
   time:
     formats:
@@ -38,6 +38,8 @@ en:
   validation:
     order:
       invalid: Your order is invalid!
+    menu:
+      invalid: Your menu is invalid!
   activerecord:
     models:
       user:

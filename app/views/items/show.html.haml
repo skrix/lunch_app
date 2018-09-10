@@ -1,9 +1,18 @@
-%p
-  %strong= t('activerecord.attributes.item.name')
-  = @item.name
-%p
-  %strong= t('activerecord.attributes.item.price')
-  = @item.price
-= link_to t('actions.edit'), edit_item_path(@item)
-|
-= link_to t('actions.back'), :back
+= render 'layouts/page_header', headline: "#{t('activerecord.models.item.one')}: #{@item.name}"
+
+%div.content
+  %table.table.table-striped
+    %tr
+      %th= t('activerecord.attributes.item.name')
+      %td= @item.name
+    %tr
+      %th= t('activerecord.attributes.item.kind')
+      %td= @item.kind
+    %tr
+      %th= t('activerecord.attributes.item.price')
+      %td= @item.price
+
+= button_to t('actions.edit'), edit_item_path(@item), method: :get, class: 'btn btn-primary'
+
+%br
+= render 'layouts/page_footer'

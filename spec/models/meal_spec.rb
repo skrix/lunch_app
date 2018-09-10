@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe Meal, type: :model do
-  let(:first)  { create(:meal, :first) }
-  let(:second) { create(:meal, :second) }
-  let(:drink)  { create(:meal, :drink) }
+  let(:first)  { create(:meal, :first, :with_menu) }
+  let(:second) { create(:meal, :second, :with_menu) }
+  let(:drink)  { create(:meal, :drink, :with_menu) }
 
   context 'meal first_lunch' do
     it 'is valid with valid attributes' do
@@ -24,9 +24,15 @@ describe Meal, type: :model do
   end
 
   context 'with invalid attributes' do
-    it { should validate_presence_of(:price) }
     it { should belong_to(:item) }
     it { should belong_to(:menu) }
-    it { should validate_numericality_of(:price) }
+  end
+
+  context 'with valid price' do
+    let!(:control_meal) { first.decorate }
+
+    it 'set the same price as in item' do
+      expect(control_meal.price).to eq(control_meal.item_price)
+    end
   end
 end

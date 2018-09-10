@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-
   factory :item do
-    sequence(:name) { |n| "#{n}_#{Faker::Food.dish.truncate(27)}" }
+    sequence(:name) { |n| "#{n}_#{Faker::Food.dish.truncate(10)}" }
     price { Faker::Number.decimal(3, 2) }
 
     trait :first do
@@ -15,7 +14,7 @@ FactoryBot.define do
     end
 
     trait :drink do
-      sequence(:name) { |n| "#{n}_#{Faker::Beer.name.truncate(27)}" }
+      sequence(:name) { |n| "#{n}_#{Faker::Beer.name.truncate(10)}" }
       kind Item::DRINK
     end
   end
