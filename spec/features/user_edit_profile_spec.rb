@@ -12,7 +12,7 @@ feature 'Edit user profile' do
   end
 
   def change_info
-    click_button   'Edit'
+    click_button 'Edit'
     fill_in      'Username', with: name
     click_button 'Update User'
   end
