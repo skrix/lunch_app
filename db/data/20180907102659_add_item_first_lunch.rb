@@ -8,6 +8,7 @@ class AddItemFirstLunch < SeedMigration::Migration
   end
 
   def down
-    Item.destroy_all(name: 'Borscht')
+    Item.find_by(name: 'Borscht')
+        &.destroy
   end
 end

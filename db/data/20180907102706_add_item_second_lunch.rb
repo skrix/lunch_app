@@ -8,6 +8,7 @@ class AddItemSecondLunch < SeedMigration::Migration
   end
 
   def down
-    Item.destroy_all(name: 'Pasta e Fagioli')
+    Item.find_by(name: 'Pasta e Fagioli')
+        &.destroy
   end
 end

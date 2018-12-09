@@ -6,6 +6,7 @@
 
 # Ignore env variables
 /.env
+/.env.test
 
 # Ignore bundler config.
 /.bundle

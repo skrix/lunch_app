@@ -8,6 +8,7 @@ class AddItemDrink < SeedMigration::Migration
   end
 
   def down
-    Item.destroy_all(name: 'Daiquiri')
+    Item.find_by(name: 'Daiquiri')
+        &.destroy
   end
 end
