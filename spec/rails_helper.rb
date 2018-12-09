@@ -3,6 +3,7 @@
 require 'spec_helper'
 require 'faker'
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 require 'shoulda/matchers'
 require 'simplecov'
 require 'pundit/rspec'

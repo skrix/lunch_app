@@ -33,4 +33,5 @@ coverage
 # Ignore IDE and OS specific files
 .DS_Store
 .idea
+.idea/**/*
 .vs
