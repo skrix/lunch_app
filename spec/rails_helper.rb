@@ -3,12 +3,12 @@
 require 'spec_helper'
 require 'faker'
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 require 'shoulda/matchers'
 require 'simplecov'
 require 'pundit/rspec'
 require 'dotenv'
 
-# require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)

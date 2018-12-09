@@ -6,16 +6,16 @@ FactoryBot.define do
     price { Faker::Number.decimal(3, 2) }
 
     trait :first do
-      kind Item::FIRST_LUNCH
+      kind { Item::FIRST_LUNCH }
     end
 
     trait :second do
-      kind Item::SECOND_LUNCH
+      kind { Item::SECOND_LUNCH }
     end
 
     trait :drink do
       sequence(:name) { |n| "#{n}_#{Faker::Beer.name.truncate(10)}" }
-      kind Item::DRINK
+      kind { Item::DRINK }
     end
   end
 end

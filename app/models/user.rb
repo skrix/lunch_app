@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  NAME_LENGTH = 2..30
+  NAME_LENGTH = (2..30).freeze
 
   acts_as_token_authenticatable
 
