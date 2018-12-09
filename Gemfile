@@ -8,7 +8,6 @@ gem 'rails',       '~> 5.2.0'
 gem 'pg',          '>= 0.18', '< 2.0'
 gem 'puma',        '~> 3.11'
 gem 'bootsnap',    '>= 1.1.0', require: false
-gem 'tzinfo-data', platforms:  %i[mingw mswin x64_mingw jruby]
 
 # ============= FRONTEND ===================
 gem 'sass-rails', '~> 5.0'
@@ -69,3 +68,4 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+gem 'tzinfo-data'
