@@ -1,6 +1,9 @@
-= render 'layouts/page_header', headline: "#{t('actions.new')} #{t('activerecord.models.menu.one')}"
+%h1.text-center.page_headline
+  = "#{t('actions.new')} #{t('activerecord.models.menu.one')}"
 
 %div.content
   = render 'form', facade: @facade
 %br
-= render 'layouts/page_footer'
+%div.page_footer
+  = button_to t('actions.back'), :back, method: :get, class: 'btn btn-secondary'
+

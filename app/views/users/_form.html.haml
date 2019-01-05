@@ -4,5 +4,7 @@
     .col-md-6
       = f.button :submit
     .col-md-6
-      = render 'layouts/page_footer'
+      %div.page_footer
+  = button_to t('actions.back'), :back, method: :get, class: 'btn btn-secondary'
+
 

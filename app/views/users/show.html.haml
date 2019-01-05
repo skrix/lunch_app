@@ -1,4 +1,5 @@
-= render 'layouts/page_header', headline: "#{t('activerecord.models.user.one')}: #{@user.username}"
+%h1.text-center.page_headline
+  = "#{t('activerecord.models.user.one')}: #{@user.username}"
 
 %div.content
   %table.table.table-striped
@@ -14,4 +15,6 @@
   .col-md-6
     = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'btn btn-primary'
   .col-md-6
-    = render 'layouts/page_footer'
+    %div.page_footer
+  = button_to t('actions.back'), :back, method: :get, class: 'btn btn-secondary'
+

@@ -10,10 +10,9 @@ gem 'puma',        '~> 3.11'
 gem 'bootsnap',    '>= 1.1.0', require: false
 
 # ============= FRONTEND ===================
-gem 'sprockets', '~> 4.x'
-gem 'babel-schmooze-sprockets'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'turbolinks', '~> 5'
 gem 'hamlit'
 gem 'hamlit-rails'
 gem 'devise-bootstrap-views'

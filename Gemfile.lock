@@ -61,9 +61,6 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     awesome_print (1.8.0)
-    babel-schmooze-sprockets (0.1.3)
-      schmooze
-      sprockets (~> 4.x)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
@@ -172,13 +169,13 @@ GEM
     method_source (0.9.2)
     mimemagic (0.3.2)
     mini_mime (1.0.1)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.2.4)
     multi_json (1.13.1)
     nio4r (2.3.1)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.0)
+      mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     parallel (1.12.1)
     parser (2.5.3.0)
@@ -272,7 +269,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    schmooze (0.2.0)
     seed_migration (1.2.3)
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
@@ -311,6 +307,9 @@ GEM
     tilt (2.0.9)
     timecop (0.9.1)
     tins (1.20.2)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.7)
@@ -337,7 +336,6 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  babel-schmooze-sprockets
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
   bullet
@@ -377,8 +375,8 @@ DEPENDENCIES
   simple_token_authentication (~> 1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (~> 4.x)
   timecop
+  turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)

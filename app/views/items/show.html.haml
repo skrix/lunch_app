@@ -1,4 +1,5 @@
-= render 'layouts/page_header', headline: "#{t('activerecord.models.item.one')}: #{@item.name}"
+%h1.text-center.page_headline
+  = "#{t('activerecord.models.item.one')}: #{@item.name}"
 
 %div.content
   %table.table.table-striped
@@ -15,4 +16,6 @@
 = button_to t('actions.edit'), edit_item_path(@item), method: :get, class: 'btn btn-primary'
 
 %br
-= render 'layouts/page_footer'
+%div.page_footer
+  = button_to t('actions.back'), :back, method: :get, class: 'btn btn-secondary'
+

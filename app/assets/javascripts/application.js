@@ -2,6 +2,7 @@
 //= require 'jquery_ujs'
 //= require 'bootstrap/dist/js/bootstrap'
 //= require 'bootstrap-datepicker'
-//= require 'jquery-form-validator/form-validator/jquery.form-validator'
-//= require 'jquery-form-validator/form-validator/security'
-//= require 'jquery-form-validator/form-validator/file'
+//= require cocoon
+//= require activestorage
+//= require turbolinks
+//= require_tree .

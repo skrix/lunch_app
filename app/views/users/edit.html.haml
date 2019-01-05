@@ -1,4 +1,5 @@
-= render 'layouts/page_header', headline: "#{t('actions.editing')} #{t('activerecord.models.user.one')}: #{@user.username}"
+%h1.text-center.page_headline
+  = "#{t('actions.editing')} #{t('activerecord.models.user.one')}: #{@user.username}"
 
 %div.content
   = render 'form', user: @user
