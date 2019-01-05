@@ -1,87 +1,163 @@
 en:
   title: Perfect Lunch Ordering App
-  submit: Submit
-  header:
-    home: Home
-    orders: Orders
-    users: Users
-    items: Items
-    profile: Profile
-  footer:
-    author: Andrew Sawhikes
-    copyright: "Copyright %{year}"
 
-  datepicker_date_format: "%m/%d/%Y"
-  error: Error
-  questions:
-    assurance: Are you sure?
-  actions:
-    add: Add
-    new: New
-    create: Create
-    show: Show
-    update: Update
+# ============ Views ===============
+  layouts:
+    header:
+      home:    Home
+      orders:  Orders
+      users:   Users
+      items:   Items
+      profile: Profile
+
+    footer:
+      author:    Andrew Sawhikes
+      copyright: "Copyright %{year}"
+
+  items:
+    index:
+      title: Items
+      buttons:
+        new: New item
+
+    show:
+      title: "Item: %{item}"
+
+    new:
+      title: New menu for today
+
+    edit:
+      title: "Editing item: %{item}"
+
+  menus:
+    index:
+      title: Menus
+      buttons:
+        new: New menu
+
+    show:
+      buttons:
+        new_order: New order
+        edit:      Edit menu
+
+    new:
+      title: Create menu for today
+
+    edit:
+      title: "Editing menu for: %{menu}"
+
+    form:
+      add_meal: Add meal
+
+  orders:
+    index:
+      title: Orders
+
+    show:
+      title: "Ordered: %{time_ordered}"
+
+    new:
+      title: New Order
+
+    daily_orders:
+      search: Filter
+
+  users:
+    index:
+      title: Users
+
+    show:
+      title: User Profile
+      buttons:
+        edit: Edit Profile
+        back: Back
+
+    edit:
+      title: "Editing user: %{username}"
+
+# ============ Buttons =============
+  buttons:
+    new:     New
+    create:  Create
+    show:    Show
+    edit:    Edit
+    update:  Update
     destroy: Destroy
-    edit: Edit
+    back:    Back
+    submit:  Submit
+
     auth:
-      sign_in: Sign in
+      sign_in:  Sign in
       sign_out: Sign out
+
+# ============ Actions =============
+  actions:
+    title: Actions
     success:
-      create: "%{resource} was successfully created."
-      update: "%{resource} was successfully updated."
+      create:  "%{resource} was successfully created."
+      update:  "%{resource} was successfully updated."
       destroy: "%{resource} was successfully destroyed."
-    editing: Editing
-    show: Show
-    back: Back
-  submit: Submit
+
+# ============ Time ================
   time:
+    datepicker_date_format: "%m/%d/%Y"
+
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
-      menu: "%A %d %B"
-      order: "%T %A %d %B"
-  validation:
+      menu:    "%A %d %B"
+      order:   "%T %A %d %B"
+
+
+# ========== Validations ===========
+  validations:
     order:
       invalid: Your order is invalid!
     menu:
       invalid: Your menu is invalid!
+
+# ========== Activerecord ===========
   activerecord:
+
+# ============ Models ===============
     models:
       user:
-        one: User
+        one:   User
         other: Users
       item:
-        one: Item
+        one:   Item
         other: Items
       menu:
-        one: Menu
+        one:   Menu
         other: Menus
       meal:
-        one: Meal
+        one:   Meal
         other: Meals
       order:
-        one: Order
+        one:   Order
         other: Orders
+
+# ========== Attributes =============
     attributes:
       user:
         username: Username
-        email: Email
+        email:    Email
         password: Password
       order:
         ordered: Ordered
         orderer: User
-        price: Price
-        total: Total
+        price:   Price
+        total:   Total
       item:
-        name: Name
+        name:  Name
         price: Price
-        kind: Kind
+        kind:  Kind
         kinds:
           first_lunch:
-            one: First meal
+            one:   First meal
             other: First meals
           second_lunch:
-            one: Second meal
+            one:   Second meal
             other: Second meals
           drink:
-            one: Drink
+            one:   Drink
             other: Drinks

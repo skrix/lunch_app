@@ -1,9 +1,7 @@
-%h1.text-center.page_headline
-  = "#{t('actions.new')} #{t('activerecord.models.menu.one')}"
+%h1.text-center
+  = t('.title')
 
-%div.content
-  = render 'form', facade: @facade
-%br
-%div.page_footer
-  = button_to t('actions.back'), :back, method: :get, class: 'btn btn-secondary'
+= render 'form', facade: @facade
 
+.text-center
+  %a.btn.btn-secondary{ href: menus_path }= t('buttons.back')

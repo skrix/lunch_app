@@ -24,7 +24,7 @@ feature 'Lunches Admin can create menu', js: true do
   end
 
   def edit_menu
-    click_button 'Edit'
+    click_link 'Edit'
   end
 
   def add_meal(meal)
@@ -39,7 +39,7 @@ feature 'Lunches Admin can create menu', js: true do
     add_meal(drink)
     create_menu
 
-    expect(page).to have_button('New Order')
+    expect(page).to have_link('New Order')
   end
 
   scenario 'lunch_admin can choose meals for menu' do
@@ -71,7 +71,7 @@ feature 'Lunches Admin can create menu', js: true do
     scenario 'lunch_admin can not create empty menu' do
       create_menu
 
-      expect(page).to have_content(I18n.t('validation.menu.invalid'))
+      expect(page).to have_content(I18n.t('validations.menu.invalid'))
     end
 
     scenario 'lunch_admin can not create not full menu' do
@@ -79,7 +79,7 @@ feature 'Lunches Admin can create menu', js: true do
       add_meal(second)
       create_menu
 
-      expect(page).to have_content(I18n.t('validation.menu.invalid'))
+      expect(page).to have_content(I18n.t('validations.menu.invalid'))
     end
   end
 end

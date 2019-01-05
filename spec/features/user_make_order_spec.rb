@@ -21,7 +21,7 @@ feature 'Users makes an order' do
 
 
   def make_order
-    click_button 'New Order'
+    click_link 'New Order'
 
     select first,  from: 'First meal'
     select second, from: 'Second meal'

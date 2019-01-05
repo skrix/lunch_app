@@ -1,10 +1,7 @@
-%h1.text-center.page_headline
-  = "#{t('actions.new')} #{t('activerecord.models.item.one')}"
+%h1.text-center
+  = t('.title')
 
-%div.content
-  = render 'form', item: @item
+= render 'form', item: @item
 
-%br
-%div.page_footer
-  = button_to t('actions.back'), :back, method: :get, class: 'btn btn-secondary'
-
+.text-center
+  %a.btn.btn-secondary{ href: items_path }= t('buttons.back')

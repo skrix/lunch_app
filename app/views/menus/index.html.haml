@@ -1,13 +1,11 @@
-%h1.text-center.page_headline
-  = t('activerecord.models.menu.other')
+%h1.text-center
+  = t('.title')
 
-%div.content
-  %ul.nav.nav-tabs
-    - @facade.week_menus.each do |menu|
-      %li.nav-item
-        = link_to menu.name, menu
+%ul.nav.nav-tabs
+  - @facade.week_menus.each do |menu|
+    %li.nav-item
+      %a.nav-link{ href: menu_path(menu.id) }= menu.name
 
-%br/
-- if current_user.lunch_admin?
-  = button_to "#{t('actions.new')} #{t('activerecord.models.menu.one')}", new_menu_path, method: :get, class: 'btn btn-primary'
-
+.text-center
+  - if current_user.lunch_admin?
+    %a.btn.btn-primary{ href: new_menu_path }= t('.buttons.new')

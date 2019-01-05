@@ -1,6 +1,6 @@
 = form_tag orders_path, method: :get do
   .form-group.mb-3.mt-3
     .input-group
-      %input#created_at.form-control.inline-block{"data-provide" => "datepicker", name: "created_at", type: "text"}
+      %input#created_at.form-control.inline-block{ "data-provide": "datepicker", name: "created_at", type: "text" }
       .input-group-append
-        %button.btn.btn-primary.inline-block{"data-disable-with" => "Submit", name: "commit", type: "submit", value: "Submit"}= t('submit')
+        %button.btn.btn-primary.inline-block{ "data-disable-with": "Searching", name: "commit", type: "submit" }= t('.search')

@@ -37,7 +37,7 @@ class MenusController < ApplicationController
   private
 
   def redirect_with_errors
-    redirect_back(fallback_location: new_menu_path, alert: t('validation.menu.invalid'))
+    redirect_back(fallback_location: new_menu_path, alert: t('validations.menu.invalid'))
   end
 
   def check_policy
