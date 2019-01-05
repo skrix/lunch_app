@@ -1,0 +1,9 @@
+%ul.navbar-nav
+  %li.nav-item
+    %a.nav-link{ href: root_path }= t('header.home')
+  %li.nav-item
+    %a.nav-link{ href: orders_path }= t('header.orders')
+  %li.nav-item
+    %a.nav-link{ href: user_path(current_user.id) }= t('header.profile')
+  %li.nav-item
+    %a.nav-link{ href: destroy_user_session_path, rel: :nofollow, data: { method: :delete } }= t('actions.auth.sign_out')

@@ -2,5 +2,6 @@
 
 class ApplicationMailer < ActionMailer::Base
   default from: ENV.fetch('MAILER_EMAIL', 'info@lunch.co')
-  layout 'mailer'
+
+  layout 'mailers/mailer'
 end

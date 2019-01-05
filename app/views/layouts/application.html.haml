@@ -1,15 +1,12 @@
 !!!
 %html
   %head
-    %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
-    %title= t('title')
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = render partial: 'layouts/head'
+
   %body
-    = render partial: 'layouts/main_header'
-    .container.main
-      = bootstrap_flash
-    %div.container.page-content
+    = render partial: 'layouts/header'
+
+    .container
       = yield
+
+    = render partial: 'layouts/footer'

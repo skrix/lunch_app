@@ -61,6 +61,9 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     awesome_print (1.8.0)
+    babel-schmooze-sprockets (0.1.3)
+      schmooze
+      sprockets (~> 4.x)
     bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
@@ -92,15 +95,7 @@ GEM
       nokogiri (~> 1.8)
     cocoon (1.2.12)
     coderay (1.1.2)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
-    commonjs (0.2.7)
-    concurrent-ruby (1.1.3)
+    concurrent-ruby (1.1.4)
     coveralls (0.8.22)
       json (>= 1.8, < 3)
       simplecov (~> 0.16.1)
@@ -163,13 +158,6 @@ GEM
     json (2.1.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    less (2.6.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.8.0)
-      actionpack (>= 4.0)
-      less (~> 2.6.0)
-      sprockets (> 2, < 4)
-      tilt
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -284,6 +272,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    schmooze (0.2.0)
     seed_migration (1.2.3)
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
@@ -307,7 +296,7 @@ GEM
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (3.7.2)
+    sprockets (4.0.0.beta8)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -322,14 +311,6 @@ GEM
     tilt (2.0.9)
     timecop (0.9.1)
     tins (1.20.2)
-    turbolinks (5.2.0)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
-    twitter-bootstrap-rails (4.0.0)
-      actionpack (~> 5.0, >= 5.0.1)
-      execjs (~> 2.7)
-      less-rails (~> 2.8, >= 2.8.0)
-      railties (~> 5.0, >= 5.0.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     tzinfo-data (1.2018.7)
@@ -356,6 +337,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  babel-schmooze-sprockets
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
   bullet
@@ -364,7 +346,6 @@ DEPENDENCIES
   capybara-selenium
   chromedriver-helper
   cocoon
-  coffee-rails (~> 4.2)
   coveralls
   database_cleaner
   devise
@@ -396,9 +377,8 @@ DEPENDENCIES
   simple_token_authentication (~> 1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets (~> 4.x)
   timecop
-  turbolinks (~> 5)
-  twitter-bootstrap-rails
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
