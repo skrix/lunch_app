@@ -29,6 +29,7 @@ gem 'rolify'
 gem 'pundit'
 gem 'draper'
 gem 'seed_migration'
+gem 'rails-routes'
 
 # ================ API =====================
 gem 'fast_jsonapi'
