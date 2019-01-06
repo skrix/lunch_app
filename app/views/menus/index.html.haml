@@ -6,6 +6,6 @@
     %li.nav-item
       %a.nav-link{ href: menu_path(menu.id) }= menu.name
 
-.text-center
+.text-center.mt-3
   - if current_user.lunch_admin?
     %a.btn.btn-primary{ href: new_menu_path }= t('.buttons.new')

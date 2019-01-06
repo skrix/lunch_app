@@ -5,9 +5,9 @@
 
   %body
     = render partial: 'layouts/header'
-    = flash_messages
 
-    .container
+    .container.pt-3.pb-3
+      = flash_messages
       = yield
 
     = render partial: 'layouts/footer'

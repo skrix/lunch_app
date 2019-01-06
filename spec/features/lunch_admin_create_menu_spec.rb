@@ -28,7 +28,7 @@ feature 'Lunches Admin can create menu', js: true do
   end
 
   def add_meal(meal)
-    click_link 'Add Meal'
+    click_link I18n.t('menus.form.add_meal')
 
     find_all('#meals select').last.select meal.name
   end
@@ -39,7 +39,7 @@ feature 'Lunches Admin can create menu', js: true do
     add_meal(drink)
     create_menu
 
-    expect(page).to have_link('New Order')
+    expect(page).to have_link(I18n.t('menus.show.buttons.new_order'))
   end
 
   scenario 'lunch_admin can choose meals for menu' do
