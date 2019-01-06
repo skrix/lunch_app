@@ -1,5 +1,5 @@
 .nested-fields.well.well-compact
-  .form-inline
+  .form-inline.mt-3
     = f.input :item_id, as: :select, collection: facade.items, class: 'form-control',
       label_method: :item_info, value_method: :id,
       label: t('activerecord.models.meal.one'),

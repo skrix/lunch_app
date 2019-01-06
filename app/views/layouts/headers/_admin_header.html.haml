@@ -8,6 +8,6 @@
   %li.nav-item
     %a.nav-link{ href: items_path }= t('layouts.header.items')
   %li.nav-item
-    %a.nav-link{ href: user_path(current_user.id) }= t('layouts.header.profile')
+    %a.nav-link{ href: user_path(current_user) }= t('layouts.header.profile')
   %li.nav-item
     %a.nav-link{ href: destroy_user_session_path, rel: :nofollow, data: { method: :delete } }= t('buttons.auth.sign_out')

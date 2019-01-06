@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Users makes an order' do
+feature 'Users makes an order', js: true do
   let(:menu) { create(:menu).decorate }
   let(:user) { create(:user, :mortal) }
 
