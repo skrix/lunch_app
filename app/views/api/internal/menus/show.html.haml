@@ -1,0 +1,17 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= t('activerecord.attributes.item.name')
+      %th= t('activerecord.attributes.item.price')
+  %tbody
+    - @facade.meals.each do |meal|
+      %tr
+        %td= meal.name
+        %td= meal.price
+
+.text-center
+  - if @facade.available?
+    %a.btn.btn-primary{ href: new_order_path(menu_id: @facade.menu), params: { menu_id: @facade.menu } }= t('.buttons.new_order')
+
+  - if current_user.lunch_admin?
+    %a.btn.btn-primary{ href:  edit_menu_path(@facade.menu) }= t('.buttons.edit')

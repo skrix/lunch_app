@@ -16,4 +16,10 @@ Rails.application.routes.draw do
       resources :orders, only: :index
     end
   end
+
+  namespace :api do
+    namespace :internal do
+      resources :menus,  only: :show
+    end
+  end
 end

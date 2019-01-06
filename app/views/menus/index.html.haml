@@ -4,7 +4,8 @@
 %ul.nav.nav-tabs
   - @facade.week_menus.each do |menu|
     %li.nav-item
-      %a.nav-link{ href: menu_path(menu.id) }= menu.name
+      %a.nav-link{ href: api_internal_menu_path(menu.id) }= menu.name
+.tab-content
 
 .text-center.mt-3
   - if current_user.lunch_admin?
