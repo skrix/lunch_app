@@ -15,7 +15,7 @@ module Menus
     private
 
     def this_week
-      today.beginning_of_week..today.end_of_week
+      today.beginning_of_week.beginning_of_day..today.end_of_week.end_of_day
     end
   end
 end
