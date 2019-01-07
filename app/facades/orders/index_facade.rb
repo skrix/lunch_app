@@ -30,7 +30,7 @@ module Orders
     end
 
     def parse_date
-      Date.strptime(created_at, I18n.t('datepicker_date_format'))
+      Date.strptime(created_at, I18n.t('time.datepicker_date_format'))
     end
 
     def filter_orders(results)

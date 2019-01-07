@@ -10,13 +10,13 @@ describe ItemPolicy do
 
   permissions :index? do
     it_behaves_like 'allowed for app_admin'
-    it_behaves_like 'not allowed for lunch_admin'
+    it_behaves_like 'allowed for lunch_admin'
     it_behaves_like 'not allowed for non-owner'
   end
 
   permissions :show? do
     it_behaves_like 'allowed for app_admin'
-    it_behaves_like 'not allowed for lunch_admin'
+    it_behaves_like 'allowed for lunch_admin'
     it_behaves_like 'not allowed for non-owner'
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Users makes an order' do
+feature 'Users makes an order', js: true do
   let(:menu) { create(:menu).decorate }
   let(:user) { create(:user, :mortal) }
 
@@ -21,7 +21,7 @@ feature 'Users makes an order' do
 
 
   def make_order
-    click_button 'New Order'
+    click_link I18n.t('menus.show.buttons.new_order')
 
     select first,  from: 'First meal'
     select second, from: 'Second meal'

@@ -1,7 +1,9 @@
 .nested-fields.well.well-compact
-  .form-inline
-    = f.input :item_id, as: :select, collection: facade.items, label_method: :item_info,
-      value_method: :id, label: t('activerecord.models.meal.one'), class: 'form-control'
+  .form-inline.mt-3
+    = f.input :item_id, as: :select, collection: facade.items, class: 'form-control',
+      label_method: :item_info, value_method: :id,
+      label: t('activerecord.models.meal.one'),
+      label_html: { class: 'mr-3' }
 
     = link_to_remove_association f, class: 'btn btn-default btn-xs' do
       .glyphicon.glyphicon-remove

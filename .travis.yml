@@ -9,6 +9,7 @@ env:
   - DATABASE_USERNAME=travis
 before_install:
   - gem install bundler
+  - yarn install
 before_script:
   - bundle exec rake db:create db:migrate
 notifications:

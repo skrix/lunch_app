@@ -1,8 +1,7 @@
-= render 'layouts/page_header', headline: "#{t('actions.editing')} #{t('activerecord.models.menu.one')}: #{@facade.name}"
+%h1.text-center
+  = t('.title', menu: @facade.name)
 
-%div.content
-  = render 'form', facade: @facade
-%br
-= button_to t('actions.show'), @menu, method: :get, class: 'btn btn-primary'
-%br
-= render 'layouts/page_footer'
+= render 'form', facade: @facade
+
+.mt-3
+  %a.btn.btn-secondary{ href: menu_path(menu) }= t('buttons.back')

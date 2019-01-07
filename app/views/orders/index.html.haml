@@ -1,26 +1,24 @@
-= render 'layouts/page_header', headline: t('activerecord.models.order.other')
+%h1.text-center
+  = t('.title')
 
-.row.col-md-12
-  .col-md-3
-  .col-md-6
-    = render 'daily_orders', facade: @facade
-  .col-md-3
+= render 'daily_orders', facade: @facade
 
-%div.content
-  %table.table.table-striped
-    %thead
+%table.table.table-striped
+  %thead
+    %tr
+      %th= t('activerecord.attributes.order.orderer')
+      %th= t('activerecord.attributes.order.ordered')
+      %th= t('activerecord.attributes.order.price')
+      %th= t('actions.title')
+  %tbody
+    - @facade.orders.each do |order|
       %tr
-        %th= t('activerecord.attributes.order.orderer')
-        %th= t('activerecord.attributes.order.ordered')
-        %th= t('activerecord.attributes.order.price')
-    %tbody
-      - @facade.orders.each do |order|
-        %tr
-          %td= order.username
-          %td= order.ordered_time
-          %td= order.order_price
-          %td= link_to t('actions.show'), order
-      %tr
-        %td
-        %th= t('activerecord.attributes.order.total')
-        %th= @facade.orders_cost
+        %td= order.username
+        %td= order.ordered_time
+        %td= order.order_price
+        %td= link_to t('buttons.show'), order
+    %tr
+      %td
+      %th= t('activerecord.attributes.order.total')
+      %th= @facade.orders_cost
+      %td

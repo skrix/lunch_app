@@ -1,17 +1,15 @@
-= render 'layouts/page_header', headline: "#{t('activerecord.models.user.one')}: #{@user.username}"
+%h1.text-center
+  = t('.title')
 
 %div.content
   %table.table.table-striped
     %tr
       %th= t('activerecord.attributes.user.username')
-      %td= @user.username
-    %tr
       %th= t('activerecord.attributes.user.email')
+    %tr
+      %td= @user.username
       %td= @user.email
 
-
-.col-md-2
-  .col-md-6
-    = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'btn btn-primary'
-  .col-md-6
-    = render 'layouts/page_footer'
+.text-center
+  %a.btn.btn-primary{ href:  edit_user_path(@user) }= t('.buttons.edit')
+  %a.btn.btn-secondary{ href: users_path }= t('.buttons.back')

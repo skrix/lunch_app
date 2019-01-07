@@ -1,0 +1,14 @@
+.navbar.navbar-expand-md.navbar-dark.bg-dark.sticky-top
+  .container
+    %a.navbar-brand{ href: root_path }= t('title')
+
+    %button.navbar-toggler{ aria: { controls: "navbarNav", expanded: :false },
+                            data: { target: "#navbarNav", toggle: :collapse } }
+      %span.navbar-toggler-icon
+
+    #navbarNav.collapse.navbar-collapse.justify-content-end
+      - if user_signed_in?
+        - if current_user.lunch_admin?
+          = render 'layouts/headers/admin_header'
+        - else
+          = render 'layouts/headers/user_header'

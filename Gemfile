@@ -12,11 +12,9 @@ gem 'bootsnap',    '>= 1.1.0', require: false
 # ============= FRONTEND ===================
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'hamlit'
 gem 'hamlit-rails'
-gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'simple_form'
 gem 'cocoon'
@@ -24,12 +22,14 @@ gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'jbuilder', '~> 2.5'
 
+
 # ============= FEATURES ===================
 gem 'devise'
 gem 'rolify'
 gem 'pundit'
 gem 'draper'
 gem 'seed_migration'
+gem 'rails-routes'
 
 # ================ API =====================
 gem 'fast_jsonapi'

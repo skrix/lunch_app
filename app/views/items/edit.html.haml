@@ -1,7 +1,7 @@
-= render 'layouts/page_header', headline: "#{t('actions.editing')} #{t('activerecord.models.item.one')}: #{@item.name}"
+%h1.text-center
+  = t('.title', item: @item.name)
 
-%div.content
-  = render 'form', item: @item
+= render 'form', item: @item
 
-%br
-= render 'layouts/page_footer'
+.text-center
+  %a.btn.btn-secondary{ href: item_path(@item) }= t('buttons.back')

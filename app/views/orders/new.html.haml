@@ -1,4 +1,4 @@
-= render 'layouts/page_header', headline: "#{t('actions.new')} #{t('activerecord.models.order.one')}"
+%h1.text-center
+  = t('.title')
 
-%div.content
-  = render 'form', facade: @facade
+= render 'form', facade: @facade

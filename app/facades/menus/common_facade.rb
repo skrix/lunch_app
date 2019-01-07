@@ -2,7 +2,7 @@
 
 module Menus
   class CommonFacade
-    delegate :meals, to: :menu
+    delegate :meals, to: :decorated_menu
     delegate :name,  to: :decorated_menu
 
     attr_reader :menu
