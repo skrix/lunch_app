@@ -20,13 +20,13 @@ document.addEventListener('turbolinks:load', function() {
     return ajaxMenuLoad(url);
   });
 
-  $(window).on('load', function(){
+  $(window).on('ready', function(){
     let $menu = $('.nav-tabs .nav-link:last');
 
     $menu.addClass('active');
 
     if ($menu.prevObject.length) {
-      ajaxMenuLoad($menu.attr('href'));
+      return ajaxMenuLoad($menu.attr('href'));
     }
   });
 });
