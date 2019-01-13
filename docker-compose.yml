@@ -22,7 +22,17 @@ services:
     ports:
       - '3000:3000'
     env_file:
-      - '.env'
+      - '.env.example'
+
+  mongo_db:
+    image: mongo:latest
+    environment:
+      - MONGO_DATA_DIR=/data/logs
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/logs:/data/logs
+    ports:
+      - '27017:27017'
 
 volumes:
   postgres:

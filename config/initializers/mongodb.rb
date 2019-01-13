@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-SemanticLogger.default_level = :trace
+mongo_log_url  = ENV.fetch('MONGO_LOG_URL', 'mongodb://127.0.0.1:27017/log')
+mongo_log_size = ENV.fetch('MONGO_LOG_SIZE', 1024.megabytes)
+mongo_log_app  = ENV.fetch('MONGO_LOG_APP', Rails.application.class.name)
 
-client   = Mongo::Client.new('mongodb://127.0.0.1:27017/test')
-database = client['test']
+Mongo::Client.new(mongo_log_url)
 
 appender = SemanticLogger::Appender::MongoDB.new(
-  uri:             'mongodb://127.0.0.1:27017/test',
-  collection_size: 1024**3,
-  application:     Rails.application.class.name
+  uri:             mongo_log_url,
+  collection_size: mongo_log_size,
+  application:     mongo_log_app
 )
-SemanticLogger.add_appender(appender: appender)
 
-logger = SemanticLogger['Example']
-logger.trace "Low level trace information"
+SemanticLogger.add_appender(appender: appender)

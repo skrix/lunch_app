@@ -5,6 +5,7 @@ addons:
 language: ruby
 rvm:
   - 2.5.1
+services: mongodb
 env:
   - DATABASE_USERNAME=travis
 before_install:
