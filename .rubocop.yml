@@ -81,11 +81,6 @@ Layout/AlignHash:
 Layout/EmptyLineAfterGuardClause:
   Enabled: true
 
-# Indenting the chained dots beneath each other is not supported by this cop,
-# see https://github.com/bbatsov/rubocop/issues/1633
-Layout/MultilineOperationIndentation:
-  Enabled: false
-
 # This cop checks the indentation of the method name part
 # in method calls that span more than one line.
 Layout/MultilineMethodCallIndentation:
@@ -98,11 +93,6 @@ Layout/SpaceAroundOperators:
 # This cop checks for extra/unnecessary whitespace
 Layout/ExtraSpacing:
   ForceEqualSignAlignment: true
-
-# Method chains are indented with 2 spaces
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle:    indented
-  IndentationWidth: 2
 
 # Multi-line expressions with operators are indented with 2 spaces
 Layout/MultilineOperationIndentation:
